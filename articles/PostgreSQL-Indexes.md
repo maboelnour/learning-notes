@@ -12,36 +12,24 @@ After an index is created, the system has to keep it synchronized with the table
 
 ## Index Types:
 
- 1. List item
-
-B-trees indexes
-
+ 1. B-trees indexes
 The optimizer can also use a B-tree index for queries involving the pattern matching operators LIKE and ~ if the pattern is a constant and is anchored to the beginning of the string — for example, col LIKE 'foo%' or col ~ '^foo', but not col LIKE '%bar'.
 
-Hash indexes
-
+2. Hash indexes
 Hash indexes can only handle simple equality comparisons. The query planner will consider using a hash index whenever an indexed column is involved in a comparison using the = operator.
 
-GiST indexes
-
+3. GiST indexes
 GiST indexes are not a single kind of index, but rather an infrastructure within which many different indexing strategies can be implemented. Accordingly, the particular operators with which a GiST index can be used vary depending on the indexing strategy (the operator class)
 
-  
-
-SP-GiST indexes
-
+4. SP-GiST indexes
 SP-GiST indexes, like GiST indexes, offer an infrastructure that supports various kinds of searches. SP-GiST permits implementation of a wide range of different non-balanced disk-based data structures, such as quadtrees, k-d trees, and radix trees (tries).
 
-GIN indexes
-
-GIN indexes are “inverted indexes” {inverted indexes vs forward indexes} which are appropriate for data values that contain multiple component values, such as arrays. An inverted index contains a separate entry for each component value, and can efficiently handle queries that test for the presence of specific component values.
+5. GIN indexes
+GIN indexes are `inverted indexes` {inverted indexes vs forward indexes} which are appropriate for data values that contain multiple component values, such as arrays. An inverted index contains a separate entry for each component value, and can efficiently handle queries that test for the presence of specific component values.
 
   
-  
-
-BRIN indexes
-
+ 6. BRIN indexes
 BRIN indexes (a shorthand for Block Range INdexes) store summaries about the values stored in consecutive physical block ranges of a table. Like GiST, SP-GiST and GIN, BRIN can support many different indexing strategies, and the particular operators with which a BRIN index can be used vary depending on the indexing strategy. For data types that have a linear sort order, the indexed data corresponds to the minimum and maximum values of the values in the column for each block range. This supports indexed queries using these operators:
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTkxNTc1OTQ3OF19
+eyJoaXN0b3J5IjpbMTA4NDM0OTY5Nl19
 -->
