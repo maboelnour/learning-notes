@@ -38,7 +38,7 @@ BRIN indexes (a shorthand for Block Range INdexes) store summaries about the val
 
 A multicolumn B-tree index can be used with query conditions that involve any subset of the index's columns, but the index is most efficient when there are constraints on the leading (leftmost) columns. The exact rule is that equality constraints on leading columns, plus any inequality constraints on the first column that does not have an equality constraint, will be used to limit the portion of the index that is scanned. Constraints on columns to the right of these columns are checked in the index, so they save visits to the table proper, but they do not reduce the portion of the index that has to be scanned.
 
-For example, given an index on (a, b, c) and a query condition `WHERE a = 5 AND b >= 42 AND c < 77`, the index would have to be scanned from the first entry with `a = 5` and `b = 42` up through the last entry with `a = 5`. Index entries with `c >= 77` would be skipped, but they'd still have to be scanned through [[full index scan vs full table scan]](https://dzone.com/articles/full-table-scan-vs-full-index).
+For example, given an index on (a, b, c) and a query condition `WHERE a = 5 AND b >= 42 AND c < 77`, the index would have to be scanned from the first entry with `a = 5` and `b = 42` up through the last entry with `a = 5`. Index entries with `c >= 77` would be skipped, but they'd still have to be scanned through [\[full index scan vs full table scan](https://dzone.com/articles/full-table-scan-vs-full-index) + [2\]](https://www.percona.com/blog/2012/11/23/full-table-scan-vs-full-index-scan-performance/) .
 
 This index could in principle be used for queries that have constraints on `b` and/or `c` with no constraint on `a` — but the entire index would have to be scanned, **so in most cases the planner would prefer a sequential table scan over using the index.**
 
@@ -127,6 +127,7 @@ even though they had no intention of ever using `y` as part of a `WHERE` clause.
     
     If you do not succeed in adjusting the costs to be more appropriate, then you might have to resort to forcing index usage explicitly.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM2MjYwNDYzOCwxNjY3MzAxOTQ1LC0xOT
-YwMDQ1NTI2LDIwNzI0NjM4MTUsMTA4NDM0OTY5Nl19
+eyJoaXN0b3J5IjpbLTIwOTAxNjMxMDcsLTM2MjYwNDYzOCwxNj
+Y3MzAxOTQ1LC0xOTYwMDQ1NTI2LDIwNzI0NjM4MTUsMTA4NDM0
+OTY5Nl19
 -->
