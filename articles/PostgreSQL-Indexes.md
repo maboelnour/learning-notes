@@ -63,8 +63,12 @@ When an index is declared unique, multiple table rows with equal indexed values 
 then it might be worth creating an index like this:
 
 > CREATE INDEX people_names ON people ((first_name || ' ' || last_name));
-> 
+
+Index expressions are relatively expensive to maintain, because the derived expression(s) must be computed for each row upon insertion and whenever it is updated. However, the index expressions are not recomputed during an indexed search, since they are already stored in the index. In both examples above, the system sees the query as just `WHERE indexedcolumn = 'constant'` and so the speed of the search is equivalent to any other simple index query. **Thus, indexes on expressions are useful when retrieval speed is more important than insertion and update speed.**
+
+## Index-Only Scans and Covering Indexes
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjAwNzM0NDg0NywtMTk2MDA0NTUyNiwyMD
-cyNDYzODE1LDEwODQzNDk2OTZdfQ==
+eyJoaXN0b3J5IjpbMjEzMTkxMCwtMTk2MDA0NTUyNiwyMDcyND
+YzODE1LDEwODQzNDk2OTZdfQ==
 -->
