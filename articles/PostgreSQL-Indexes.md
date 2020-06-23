@@ -42,8 +42,8 @@ This index could in principle be used for queries that have constraints on `b` a
 
 Multicolumn indexes should be used sparingly. In most situations, an index on a single column is sufficient and saves space and time. Indexes with more than three columns are unlikely to be helpful unless the usage of the table is extremely stylized
 
-
+## Combining Multiple Indexes
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTAzNDcxMjg4NiwyMDcyNDYzODE1LDEwOD
-QzNDk2OTZdfQ==
+eyJoaXN0b3J5IjpbLTE5NjAwNDU1MjYsMjA3MjQ2MzgxNSwxMD
+g0MzQ5Njk2XX0=
 -->
