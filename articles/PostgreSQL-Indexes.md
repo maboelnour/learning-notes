@@ -38,10 +38,12 @@ A multicolumn B-tree index can be used with query conditions that involve any su
 
 For example, given an index on (a, b, c) and a query condition `WHERE a = 5 AND b >= 42 AND c < 77`, the index would have to be scanned from the first entry with `a = 5` and `b = 42` up through the last entry with `a = 5`. Index entries with `c >= 77` would be skipped, but they'd still have to be scanned through [[full index scan vs full table scan]](https://dzone.com/articles/full-table-scan-vs-full-index).
 
-This index could in principle be used for queries that have constraints on b and/or c with no constraint on a — but the entire index would have to be scanned, so in most cases the planner would prefer a sequential table scan over using the index.
+This index could in principle be used for queries that have constraints on `b` and/or `c` with no constraint on `a` — but the entire index would have to be scanned, **so in most cases the planner would prefer a sequential table scan over using the index.**
 
 Multicolumn indexes should be used sparingly. In most situations, an index on a single column is sufficient and saves space and time. Indexes with more than three columns are unlikely to be helpful unless the usage of the table is extremely stylized
+
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI1OTYzMTY1OCwyMDcyNDYzODE1LDEwOD
+eyJoaXN0b3J5IjpbMTAzNDcxMjg4NiwyMDcyNDYzODE1LDEwOD
 QzNDk2OTZdfQ==
 -->
