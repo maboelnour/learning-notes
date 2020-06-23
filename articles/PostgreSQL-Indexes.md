@@ -25,11 +25,11 @@ GiST indexes are not a single kind of index, but rather an infrastructure within
 SP-GiST indexes, like GiST indexes, offer an infrastructure that supports various kinds of searches. SP-GiST permits implementation of a wide range of different non-balanced disk-based data structures, such as quadtrees, k-d trees, and radix trees (tries).
 
 5. GIN indexes
-GIN indexes are `inverted indexes` {inverted indexes vs forward indexes} which are appropriate for data values that contain multiple component values, such as arrays. An inverted index contains a separate entry for each component value, and can efficiently handle queries that test for the presence of specific component values.
+GIN indexes are `inverted indexes` [\[inverted indexes vs forward indexes\]](https://github.com/bhatman17/inverted-index-series/tree/master/introduction/diff-frwd-invrrtd-index) which are appropriate for data values that contain multiple component values, such as arrays. An inverted index contains a separate entry for each component value, and can efficiently handle queries that test for the presence of specific component values.
 
   
  6. BRIN indexes
 BRIN indexes (a shorthand for Block Range INdexes) store summaries about the values stored in consecutive physical block ranges of a table. Like GiST, SP-GiST and GIN, BRIN can support many different indexing strategies, and the particular operators with which a BRIN index can be used vary depending on the indexing strategy. For data types that have a linear sort order, the indexed data corresponds to the minimum and maximum values of the values in the column for each block range. This supports indexed queries using these operators:
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA4NDM0OTY5Nl19
+eyJoaXN0b3J5IjpbMjA3MjQ2MzgxNSwxMDg0MzQ5Njk2XX0=
 -->
