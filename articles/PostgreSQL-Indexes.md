@@ -94,7 +94,12 @@ In short, while an index-only scan is possible given the two fundamental require
 To make effective use of the index-only scan feature, you might choose to create a covering index, which is an index specifically designed to include the columns needed by a particular type of query that you run frequently. Since queries typically need to retrieve more columns than just the ones they search on, PostgreSQL allows you to create an index in which some columns are just “payload” and are not part of the search key. This is done by adding an `INCLUDE` clause listing the extra columns. For example, if you commonly run queries like:
 > SELECT y FROM tab WHERE x = 'key';
 
+The traditional approach to speeding up such queries would be to create an index on x only. However, an index defined as
+
+> CREATE INDEX tab_x_y ON tab(x) INCLUDE (y);
+
+could handle these queries as index-only scans, because y can be obtained from the index without visiting the heap.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM5NjczMzMwLC0xOTYwMDQ1NTI2LDIwNz
-I0NjM4MTUsMTA4NDM0OTY5Nl19
+eyJoaXN0b3J5IjpbLTQwMzYxMDA3NywtMTk2MDA0NTUyNiwyMD
+cyNDYzODE1LDEwODQzNDk2OTZdfQ==
 -->
