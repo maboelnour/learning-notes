@@ -105,7 +105,9 @@ It's wise to be conservative about adding non-key payload columns to an index, e
 Before PostgreSQL had the `INCLUDE` feature, people sometimes made covering indexes by writing the payload columns as ordinary index columns, that is writing
 
 > CREATE INDEX tab_x_y ON tab(x, y);
+
+even though they had no intention of ever using `y` as part of a `WHERE` clause. This works fine as long as the extra columns are trailing columns; making them be leading columns is unwise for the reasons explained in [Section 11.3](https://www.postgresql.org/docs/12/indexes-multicolumn.html "11.3. Multicolumn Indexes"). However, this method doesn't support the case where you want the index to enforce uniqueness on the key column(s).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA4Nzc0MjIzMSwtMTk2MDA0NTUyNiwyMD
+eyJoaXN0b3J5IjpbMTc3NDc0MDQ4OCwtMTk2MDA0NTUyNiwyMD
 cyNDYzODE1LDEwODQzNDk2OTZdfQ==
 -->
