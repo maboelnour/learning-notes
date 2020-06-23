@@ -74,15 +74,16 @@ To solve this performance problem, PostgreSQL supports **index-only scans**, whi
 
 1.  The index type must support index-only scans. B-tree indexes always do. GiST and SP-GiST indexes support index-only scans for some operator classes but not others. Other index types have no support. The underlying requirement is that the index must physically store, or else be able to reconstruct, the original data value for each index entry. As a counterexample, GIN indexes cannot support index-only scans because each index entry typically holds only part of the original data value.
 
-3. The query must reference only columns stored in the index. For example, given an index on columns x and y of a table that also has a column z, these queries could use index-only scans:  
+2. The query must reference only columns stored in the index. For example, given an index on columns x and y of a table that also has a column z, these queries could use index-only scans:  
 	> SELECT x, y FROM tab WHERE x = 'key';
-	>SELECT x FROM tab WHERE x = 'key' AND y < 42;
+	SELECT x FROM tab WHERE x = 'key' AND y < 42;
 	
 	but these queries could not:  
-  
 	>SELECT x, z FROM tab WHERE x = 'key';
+	SELECT x FROM tab WHERE x = 'key' AND z < 42;
 	
+If these two fundamental requirements are met, then all the data values required by the query are available from the index, so an index-only scan is physically possible. But there is an additional requirement for any table scan in PostgreSQL: it must verify that each retrieved row be “visible” to the query's MVCC snapshot, as discussed in [Chapter 13](https://www.postgresql.org/docs/12/mvcc.html). Visibility information is not stored in index entries, only in heap entries; so at first glance it would seem that every row retrieval would require a heap access anyway. And this is indeed the case, if the table row has been modified recently. However, for seldom-changing data there is a way around this problem. PostgreSQL tracks, for each page in a table's heap, whether all rows stored in that page are old enough to be visible to all current and future transactions. This information is stored in a bit in the table's visibility map. An index-only scan, after finding a candidate index entry, checks the visibility map bit for the corresponding heap page. If it's set, the row is known visible and so the data can be returned with no further work. If it's not set, the heap entry must be visited to find out whether it's visible, so no performance advantage is gained over a standard index scan. Even in the successful case, this approach trades visibility map accesses for heap accesses; but since the visibility map is four orders of magnitude smaller than the heap it describes, far less physical I/O is needed to access it. In most situations the visibility map remains cached in memory all the time.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4MTk0MTA5NzksLTE5NjAwNDU1MjYsMj
+eyJoaXN0b3J5IjpbLTE2NDQ5MjY2ODgsLTE5NjAwNDU1MjYsMj
 A3MjQ2MzgxNSwxMDg0MzQ5Njk2XX0=
 -->
