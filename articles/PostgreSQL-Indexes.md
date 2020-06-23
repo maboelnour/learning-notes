@@ -56,7 +56,15 @@ In all but the simplest applications, there are various combinations of indexes 
 
 Currently, only B-tree indexes can be declared unique.
 When an index is declared unique, multiple table rows with equal indexed values are not allowed. Null values are not considered equal. A multicolumn unique index will only reject cases where all indexed columns are equal in multiple rows.
+
+## Indexes on Expressions
+> SELECT * FROM people WHERE (first_name || ' ' || last_name) = 'John Smith';
+
+then it might be worth creating an index like this:
+
+> CREATE INDEX people_names ON people ((first_name || ' ' || last_name));
+> 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjE0MDY3MDE3NiwtMTk2MDA0NTUyNiwyMD
+eyJoaXN0b3J5IjpbMjAwNzM0NDg0NywtMTk2MDA0NTUyNiwyMD
 cyNDYzODE1LDEwODQzNDk2OTZdfQ==
 -->
