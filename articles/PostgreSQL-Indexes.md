@@ -73,8 +73,16 @@ All indexes in PostgreSQL **are secondary indexes, meaning that each index is st
 To solve this performance problem, PostgreSQL supports **index-only scans**, which can answer queries from an index alone without any heap access. The basic idea is to return values directly out of each index entry instead of consulting the associated heap entry. There are **two fundamental restrictions** on when this method can be used:
 
 1.  The index type must support index-only scans. B-tree indexes always do. GiST and SP-GiST indexes support index-only scans for some operator classes but not others. Other index types have no support. The underlying requirement is that the index must physically store, or else be able to reconstruct, the original data value for each index entry. As a counterexample, GIN indexes cannot support index-only scans because each index entry typically holds only part of the original data value.
-2. 
+
+3. The query must reference only columns stored in the index. For example, given an index on columns x and y of a table that also has a column z, these queries could use index-only scans:  
+	> SELECT x, y FROM tab WHERE x = 'key';
+	>SELECT x FROM tab WHERE x = 'key' AND y < 42;
+	
+	but these queries could not:  
+  
+	>SELECT x, z FROM tab WHERE x = 'key';
+	
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4Mjk4MjQzMzEsLTE5NjAwNDU1MjYsMj
+eyJoaXN0b3J5IjpbLTE4MTk0MTA5NzksLTE5NjAwNDU1MjYsMj
 A3MjQ2MzgxNSwxMDg0MzQ5Njk2XX0=
 -->
