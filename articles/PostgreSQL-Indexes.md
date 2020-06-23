@@ -107,7 +107,24 @@ Before PostgreSQL had the `INCLUDE` feature, people sometimes made covering inde
 > CREATE INDEX tab_x_y ON tab(x, y);
 
 even though they had no intention of ever using `y` as part of a `WHERE` clause. This works fine as long as the extra columns are trailing columns; making them be leading columns is unwise for the reasons explained in [Section 11.3](https://www.postgresql.org/docs/12/indexes-multicolumn.html "11.3. Multicolumn Indexes"). However, this method doesn't support the case where you want the index to enforce uniqueness on the key column(s).
+
+## Examining Index Usage
+-   Always run [ANALYZE](https://www.postgresql.org/docs/12/sql-analyze.html "ANALYZE") first. This command collects statistics about the distribution of the values in the table. This information is required to estimate the number of rows returned by a query, which is needed by the planner to assign realistic costs to each possible query plan. In absence of any real statistics, some default values are assumed, which are almost certain to be inaccurate. Examining an application's index usage without having run `ANALYZE` is therefore a lost cause. See [Section 24.1.3](https://www.postgresql.org/docs/12/routine-vacuuming.html#VACUUM-FOR-STATISTICS "24.1.3. Updating Planner Statistics") and [Section 24.1.6](https://www.postgresql.org/docs/12/routine-vacuuming.html#AUTOVACUUM "24.1.6. The Autovacuum Daemon") for more information.
+    
+-   Use real data for experimentation. Using test data for setting up indexes will tell you what indexes you need for the test data, but that is all.
+    
+    It is especially fatal to use very small test data sets. While selecting 1000 out of 100000 rows could be a candidate for an index, selecting 1 out of 100 rows will hardly be, because the 100 rows probably fit within a single disk page, and there is no plan that can beat sequentially fetching 1 disk page.
+    
+    Also be careful when making up test data, which is often unavoidable when the application is not yet in production. Values that are very similar, completely random, or inserted in sorted order will skew the statistics away from the distribution that real data would have.
+    
+-   When indexes are not used, it can be useful for testing to force their use. There are run-time parameters that can turn off various plan types (see [Section 19.7.1](https://www.postgresql.org/docs/12/runtime-config-query.html#RUNTIME-CONFIG-QUERY-ENABLE "19.7.1. Planner Method Configuration")). For instance, turning off sequential scans (`enable_seqscan`) and nested-loop joins (`enable_nestloop`), which are the most basic plans, will force the system to use a different plan. If the system still chooses a sequential scan or nested-loop join then there is probably a more fundamental reason why the index is not being used; for example, the query condition does not match the index. (What kind of query can use what kind of index is explained in the previous sections.)
+    
+-   If forcing index usage does use the index, then there are two possibilities: Either the system is right and using the index is indeed not appropriate, or the cost estimates of the query plans are not reflecting reality. So you should time your query with and without indexes. The `EXPLAIN ANALYZE` command can be useful here.
+    
+-   If it turns out that the cost estimates are wrong, there are, again, two possibilities. The total cost is computed from the per-row costs of each plan node times the selectivity estimate of the plan node. The costs estimated for the plan nodes can be adjusted via run-time parameters (described in [Section 19.7.2](https://www.postgresql.org/docs/12/runtime-config-query.html#RUNTIME-CONFIG-QUERY-CONSTANTS "19.7.2. Planner Cost Constants")). An inaccurate selectivity estimate is due to insufficient statistics. It might be possible to improve this by tuning the statistics-gathering parameters (see [ALTER TABLE](https://www.postgresql.org/docs/12/sql-altertable.html "ALTER TABLE")).
+    
+    If you do not succeed in adjusting the costs to be more appropriate, then you might have to resort to forcing index usage explicitly.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc3NDc0MDQ4OCwtMTk2MDA0NTUyNiwyMD
+eyJoaXN0b3J5IjpbMTY2NzMwMTk0NSwtMTk2MDA0NTUyNiwyMD
 cyNDYzODE1LDEwODQzNDk2OTZdfQ==
 -->
