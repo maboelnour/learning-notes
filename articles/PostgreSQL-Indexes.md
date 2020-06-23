@@ -13,7 +13,7 @@ After an index is created, the system has to keep it synchronized with the table
 ## Index Types:
 
  1. B-trees indexes
-The optimizer can also use a B-tree index for queries involving the pattern matching operators LIKE and ~ if the pattern is a constant and is anchored to the beginning of the string — for example, `col LIKE 'foo%' `or `col ~ '^foo'`, but not `col LIKE '%bar'`.
+The optimizer can also use a B-tree index for queries involving the pattern matching operators `LIKE` and `~` if the pattern is a constant and is anchored to the beginning of the string — for example, `col LIKE 'foo%' `or `col ~ '^foo'`, but not `col LIKE '%bar'`.
 [\[B-Tree index structure in InnoDB\]](https://blog.jcole.us/2013/01/10/btree-index-structures-in-innodb/)
 
 2. Hash indexes
@@ -30,8 +30,10 @@ GIN indexes are `inverted indexes` [\[inverted indexes vs forward indexes\]](htt
 
   
  6. BRIN indexes
-BRIN indexes (a shorthand for Block Range INdexes) store summaries about the values stored in consecutive physical block ranges of a table. Like GiST, SP-GiST and GIN, BRIN can support many different indexing strategies, and the particular operators with which a BRIN index can be used vary depending on the indexing strategy. For data types that have a linear sort order, the indexed data corresponds to the minimum and maximum values of the values in the column for each block range. This supports indexed queries using these operators:
+BRIN indexes (a shorthand for Block Range INdexes) store summaries about the values stored in consecutive physical block ranges of a table. Like GiST, SP-GiST and GIN, BRIN can support many different indexing strategies, and the particular operators with which a BRIN index can be used vary depending on the indexing strategy. For data types that have a linear sort order, the indexed data corresponds to the minimum and maximum values of the values in the column for each block range.
+
+## Multicolumn Indexes
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY1NTc1NDE5LDIwNzI0NjM4MTUsMTA4ND
-M0OTY5Nl19
+eyJoaXN0b3J5IjpbMTk1OTU2MTkxOSwyMDcyNDYzODE1LDEwOD
+QzNDk2OTZdfQ==
 -->
