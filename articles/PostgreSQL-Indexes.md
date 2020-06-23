@@ -84,8 +84,17 @@ To solve this performance problem, PostgreSQL supports **index-only scans**, whi
 	
 If these two fundamental requirements are met, then all the data values required by the query are available from the index, so an index-only scan is physically possible. But there is an **additional requirement** for any table scan in PostgreSQL: it must verify that each retrieved row be **“visible”** to the query's MVCC snapshot, as discussed in [Chapter 13](https://www.postgresql.org/docs/12/mvcc.html). 
 
-Visibility information is not stored in index entries, only in heap entries; so at first glance it would seem that every row retrieval would require a heap access anyway. And this is indeed the case, if the table row has been modified recently. However, for seldom-changing data there is a way around this problem. PostgreSQL tracks, for each page in a table's heap, whether all rows stored in that page are old enough to be visible to all current and future transactions. This information is stored in a bit in the table's visibility map. An index-only scan, after finding a candidate index entry, checks the visibility map bit for the corresponding heap page. If it's set, the row is known visible and so the data can be returned with no further work. If it's not set, the heap entry must be visited to find out whether it's visible, so no performance advantage is gained over a standard index scan. Even in the successful case, this approach trades visibility map accesses for heap accesses; but **since the visibility map is four orders of magnitude smaller than the heap it describes**, far less physical I/O is needed to access it. In most situations the visibility map remains cached in memory all the time.
+Visibility information is not stored in index entries, only in heap entries; so at first glance it would seem that every row retrieval would require a heap access anyway. And this is indeed the case, if the table row has been modified recently. However, for seldom-changing data there is a way around this problem. PostgreSQL tracks, for each page in a table's heap, whether all rows stored in that page are old enough to be visible to all current and future transactions. This information is stored in a bit in the table's visibility map. An index-only scan, after finding a candidate index entry, checks the visibility map bit for the corresponding heap page. If it's set, the row is known visible and so the data can be returned with no further work. If it's not set, the heap entry must be visited to find out whether it's visible, so no performance advantage is gained over a standard index scan. Even in the successful case, this approach trades visibility map accesses for heap accesses; but **since the visibility map is four orders of magnitude smaller than the heap it describes, far less physical I/O is needed to access it. In most situations the visibility map remains cached in memory all the time.**
+
+
+In short, while an index-only scan is possible given the two fundamental requirements, it will be a win only if a significant fraction of the table's heap pages have their all-visible map bits set. But tables in which a large fraction of the rows are unchanging are common enough to make this type of scan very useful in practice.
+
+### Covering Indexes:
+
+To make effective use of the index-only scan feature, you might choose to create a covering index, which is an index specifically designed to include the columns needed by a particular type of query that you run frequently. Since queries typically need to retrieve more columns than just the ones they search on, PostgreSQL allows you to create an index in which some columns are just “payload” and are not part of the search key. This is done by adding an `INCLUDE` clause listing the extra columns. For example, if you commonly run queries like:
+> SELECT y FROM tab WHERE x = 'key';
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA5MzMzNzc4OCwtMTk2MDA0NTUyNiwyMD
-cyNDYzODE1LDEwODQzNDk2OTZdfQ==
+eyJoaXN0b3J5IjpbLTM5NjczMzMwLC0xOTYwMDQ1NTI2LDIwNz
+I0NjM4MTUsMTA4NDM0OTY5Nl19
 -->
