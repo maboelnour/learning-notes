@@ -99,7 +99,13 @@ The traditional approach to speeding up such queries would be to create an index
 > CREATE INDEX tab_x_y ON tab(x) INCLUDE (y);
 
 could handle these queries as index-only scans, because y can be obtained from the index without visiting the heap.
+
+It's wise to be conservative about adding non-key payload columns to an index, especially wide columns. If an index tuple exceeds the maximum size allowed for the index type, data insertion will fail. In any case, non-key columns duplicate data from the index's table and bloat the size of the index, thus potentially slowing searches. And remember that there is little point in including payload columns in an index unless the table changes slowly enough that an index-only scan is likely to not need to access the heap. If the heap tuple must be visited anyway, it costs nothing more to get the column's value from there. Other restrictions are that expressions are not currently supported as included columns, and that only B-tree and GiST indexes currently support included columns.
+
+Before PostgreSQL had the `INCLUDE` feature, people sometimes made covering indexes by writing the payload columns as ordinary index columns, that is writing
+
+> CREATE INDEX tab_x_y ON tab(x, y);
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQwMzYxMDA3NywtMTk2MDA0NTUyNiwyMD
+eyJoaXN0b3J5IjpbMjA4Nzc0MjIzMSwtMTk2MDA0NTUyNiwyMD
 cyNDYzODE1LDEwODQzNDk2OTZdfQ==
 -->
