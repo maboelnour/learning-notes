@@ -50,7 +50,9 @@ When stateful nodes hold the only copy of a user’s session state, there are us
 - Sessions may also be unevenly distributed as node instances come and go. Suppose your web tier has two web server nodes, each with 1,000 active sessions. You add a third node to handle the expected spike in traffic during lunchtime. The typical load balancer ran­domly distributes new requests across all nodes. It will not have enough information to send new sessions to the newly added node until it also has 1,000 active sessions. It is effectively “catching up” to the other nodes in the rotation. Each of the 3 nodes will get approximately one-third of the next 1,000 new sessions, resulting in an imbalance.
 **list here how it's done with nginx**
 
+2. **Session state without stateful nodes**
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4NzY3MzYyMjQsLTEzMDE0MTUzMzJdfQ
+eyJoaXN0b3J5IjpbLTExMzk0NjI0NjIsLTEzMDE0MTUzMzJdfQ
 ==
 -->
