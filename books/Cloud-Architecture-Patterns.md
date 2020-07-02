@@ -37,6 +37,10 @@ of the largest available compute node.
 subject to unpredictable spikes in usage.
 - Application compute nodes require minimal downtime, including resilience in the
 event of hardware failure, system upgrades, and resource changes due to scaling.
+
+This pattern is typically used in combination with the **Node Termination Pattern** and the **Auto-Scaling Pattern**.
+
+#### Cloud Scaling is Reversible
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzk0MDYwMTY2LC0xMzAxNDE1MzMyXX0=
+eyJoaXN0b3J5IjpbMTcyMzk2NTE3OSwtMTMwMTQxNTMzMl19
 -->
