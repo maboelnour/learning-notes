@@ -40,9 +40,12 @@ event of hardware failure, system upgrades, and resource changes due to scaling.
 
 This pattern is typically used in combination with the **Node Termination Pattern** and the **Auto-Scaling Pattern**.
 
-**Cloud Scaling is Reversible:**
-Cloud scaling is easily reversed. Costs vary in proportion to scale as scale
-varies over time.
+**Cloud Scaling is Reversible** Cloud scaling is easily reversed. Costs vary in proportion to scale as scale varies over time.
+
+#### Managing Session State:
+
+ 1. **Sticky sessions with Stateful servers**
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ3NTAyNjg3LC0xMzAxNDE1MzMyXX0=
+eyJoaXN0b3J5IjpbLTM4Njc4NDg4NSwtMTMwMTQxNTMzMl19
 -->
