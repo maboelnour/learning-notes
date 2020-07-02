@@ -44,8 +44,12 @@ This pattern is typically used in combination with the **Node Termination Patter
 
 #### Managing Session State:
 
- 1. **Sticky sessions with Stateful servers**
+ 1. **Sticky sessions with Stateful nodes**
+Some web applications use sticky sessions, which assign each user to a specific web server node when they first visit. Once assigned, that node satisfies all of that user’s page re quests for the duration of the visit. This is supported in two places: the load balancer ensures that each user is directed to their assigned node, while the web server nodes store session state 
+for users between page requests.
+**list here how it's done with nginx**
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM4Njc4NDg4NSwtMTMwMTQxNTMzMl19
+eyJoaXN0b3J5IjpbLTE0NjI3NDAzNTksLTEzMDE0MTUzMzJdfQ
+==
 -->
