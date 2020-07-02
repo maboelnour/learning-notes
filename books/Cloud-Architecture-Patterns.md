@@ -24,6 +24,19 @@ Scalability can be described by:
 - Response time: the elapsed time between a user initiating a request (such as by
 clicking a button) and receiving the round-trip response.
 
+`Cloud-native applications allocate resources horizontally, and scalability is only one benefit.`
+
+## Chapter 2: Horizontally Scaling Compute Pattern 
+
+The Horizontal Scaling Compute Pattern effectively deals with the following challenges:
+- Cost-efficient scaling of compute nodes is required, such as in the web tier or service
+tier.
+- Application capacity requirements exceed (or may exceed after growth) the capacity
+of the largest available compute node.
+- Application capacity requirements vary seasonally, monthly, weekly, or daily, or are
+subject to unpredictable spikes in usage.
+- Application compute nodes require minimal downtime, including resilience in the
+event of hardware failure, system upgrades, and resource changes due to scaling.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzMDE0MTUzMzJdfQ==
+eyJoaXN0b3J5IjpbNzk0MDYwMTY2LC0xMzAxNDE1MzMyXX0=
 -->
