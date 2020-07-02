@@ -8,11 +8,17 @@ Summarize the `Cloud Architecture Patterns` with external resources.
 • To vertically scale up is to increase overall application capacity by increasing the
 resources within existing nodes. Scaling up is limited by the utilizable capability of available hardware.
 • To horizontally scale out is to increase overall application capacity by adding nodes.
+Horizontal scaling is more efficient with homogeneous nodes.
+
 These scaling approaches are neither **mutually exclusive nor all-or-nothing**. Any application is capable of vertically scaling up, horizontally scaling out, neither, or both. For
 example, parts of an application might only vertically scale up, while other parts might
 also horizontally scale out.
 
+Vertical scaling is often hardware- and infrastructure-focused—we “**throw hardware at the problem**”—whereas horizontal scaling is development- and architecture-focused. Depending on which scal­ing strategy is employed, the responsibility may fall to specialists in different depart­ments, complicating matters for some companies.
+
+
+### Describing Scalability
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU0MjUwMzA3Ml19
+eyJoaXN0b3J5IjpbLTE5OTA3MjE2ODNdfQ==
 -->
