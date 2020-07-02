@@ -40,7 +40,9 @@ event of hardware failure, system upgrades, and resource changes due to scaling.
 
 This pattern is typically used in combination with the **Node Termination Pattern** and the **Auto-Scaling Pattern**.
 
-#### Cloud Scaling is Reversible
+**Cloud Scaling is Reversible:**
+Cloud scaling is easily reversed. Costs vary in proportion to scale as scale
+varies over time.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTcyMzk2NTE3OSwtMTMwMTQxNTMzMl19
+eyJoaXN0b3J5IjpbMTQ3NTAyNjg3LC0xMzAxNDE1MzMyXX0=
 -->
