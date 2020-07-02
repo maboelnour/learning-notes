@@ -3,6 +3,11 @@
 
 ## Chapter 1: Scalability Primer
 
+
+• To vertically scale up is to increase overall application capacity by increasing the
+resources within existing nodes.
+• To horizontally scale out is to increase overall application capacity by adding nodes.
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExNTg3MzMxNDZdfQ==
+eyJoaXN0b3J5IjpbMTgxMDIzOTU2OV19
 -->
