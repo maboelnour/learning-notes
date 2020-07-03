@@ -54,6 +54,15 @@ When stateful nodes hold the only copy of a user’s session state, there are us
 [**Enabling Session Persistence with NGINX**](https://docs.nginx.com/nginx/admin-guide/load-balancer/http-load-balancer/#enabling-session-persistence)
 Session persistence means that NGINX Plus identifies user sessions and routes all requests in a given session to the same upstream server.
 
+- **IP Hash** The server to which a request is sent is determined from the client IP address. In this case, either the first three octets of the IPv4 address or the whole IPv6 address are used to calculate the hash value. The method guarantees that requests from the same address get to the same server unless it is not available.
+```
+upstream backend {
+    ip_hash;
+    server backend1.example.com;
+    server backend2.example.com;
+}
+```
+
 - NGINX Plus adds a **session cookie** to the first response from the upstream group and identifies the server that sent the response. The client’s next request contains the cookie value and NGINX Plus route the request to the upstream server that responded to the first request: 
     ```
     upstream backend {
@@ -86,6 +95,6 @@ Session persistence means that NGINX Plus identifies user sessions and routes al
 2. **Session state without stateful nodes**
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIzMTMzMDM5NSwtMTU2MjM0NzUyOSwtMT
-EzOTQ2MjQ2MiwtMTMwMTQxNTMzMl19
+eyJoaXN0b3J5IjpbLTIxMjQ1MDgyNDUsLTIzMTMzMDM5NSwtMT
+U2MjM0NzUyOSwtMTEzOTQ2MjQ2MiwtMTMwMTQxNTMzMl19
 -->
