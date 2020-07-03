@@ -80,12 +80,12 @@ Session persistence means that NGINX Plus identifies user sessions and routes al
 	       lookup=$cookie_examplecookie
 	       zone=client_sessions:1m
 	       timeout=1h;
-}
-```
+	}
+	```
 
 2. **Session state without stateful nodes**
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM4NDUyMzgwMywtMTU2MjM0NzUyOSwtMT
+eyJoaXN0b3J5IjpbLTIzMTMzMDM5NSwtMTU2MjM0NzUyOSwtMT
 EzOTQ2MjQ2MiwtMTMwMTQxNTMzMl19
 -->
