@@ -54,17 +54,25 @@ When stateful nodes hold the only copy of a user’s session state, there are us
 [**Enabling Session Persistence with NGINX**](https://docs.nginx.com/nginx/admin-guide/load-balancer/http-load-balancer/#enabling-session-persistence)
 Session persistence means that NGINX Plus identifies user sessions and routes all requests in a given session to the same upstream server.
 
-[**Sticky cookie**](https://nginx.org/en/docs/http/ngx_http_upstream_module.html#sticky_cookie) – NGINX Plus adds a session cookie to the first response from the upstream group and identifies the server that sent the response. The client’s next request contains the cookie value and NGINX Plus route the request to the upstream server that responded to the first request:
-
+- NGINX Plus adds a session cookie to the first response from the upstream group and identifies the server that sent the response. The client’s next request contains the cookie value and NGINX Plus route the request to the upstream server that responded to the first request: 
+```
 upstream backend {
     server backend1.example.com;
     server backend2.example.com;
     sticky cookie srv_id expires=1h domain=.example.com path=/;
 }
+```
+- NGINX Plus assigns a “route” to the client when it receives the first request. All subsequent requests are compared to the [`route`](https://nginx.org/en/docs/http/ngx_http_upstream_module.html#route) parameter of the `server` directive to identify the server to which the request is proxied. The route information is taken from either a cookie or the request URI.
+    
+    upstream backend {
+        server backend1.example.com route=a;
+        server backend2.example.com route=b;
+        sticky route $route_cookie $route_uri;
+    }
 
 2. **Session state without stateful nodes**
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA5MzU2OTY2MywtMTU2MjM0NzUyOSwtMT
-EzOTQ2MjQ2MiwtMTMwMTQxNTMzMl19
+eyJoaXN0b3J5IjpbNTQ4Nzg4MTAwLC0xNTYyMzQ3NTI5LC0xMT
+M5NDYyNDYyLC0xMzAxNDE1MzMyXX0=
 -->
