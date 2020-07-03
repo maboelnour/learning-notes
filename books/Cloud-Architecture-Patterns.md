@@ -17,8 +17,8 @@ also horizontally scale out.
 Vertical scaling is often hardware- and infrastructure-focused—we “**throw hardware at the problem**”—whereas horizontal scaling is development- and architecture-focused. Depending on which scal­ing strategy is employed, the responsibility may fall to specialists in different depart­ments, complicating matters for some companies.
 
 
-#### Describing Scalability:
-Scalability can be described by: 
+
+**Scalability can be described by:** 
 - Concurrent users: the number of users with activity within a specific time interval
 (such as ten minutes).
 - Response time: the elapsed time between a user initiating a request (such as by
@@ -92,13 +92,14 @@ Session persistence means that NGINX Plus identifies user sessions and routes al
 	}
 	```
 ___
+
 2. **Session state without stateful nodes**
 A node can be kept stateless simply by avoiding storing user session state locally (on the node), but rather storing it externally. Even though session state will not be stored on individual nodes, session state does need to be stored somewhere.
 
 	**Operational Logs and Metrics:**
 	
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3MzQ0MDgyNzcsMTQxNDE0OTQ2NSwtMj
-MxMzMwMzk1LC0xNTYyMzQ3NTI5LC0xMTM5NDYyNDYyLC0xMzAx
-NDE1MzMyXX0=
+eyJoaXN0b3J5IjpbMTQ3MzU1MTgwMiwtMTczNDQwODI3NywxND
+E0MTQ5NDY1LC0yMzEzMzAzOTUsLTE1NjIzNDc1MjksLTExMzk0
+NjI0NjIsLTEzMDE0MTUzMzJdfQ==
 -->
