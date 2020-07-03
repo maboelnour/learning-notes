@@ -97,10 +97,19 @@ ___
 2. **Session state without stateful nodes**
 A node can be kept stateless simply by avoiding storing user session state locally (on the node), but rather storing it externally. Even though session state will not be stored on individual nodes, session state does need to be stored somewhere.
 
-	**Operational Logs and Metrics:**
+**Operational Logs and Metrics:**
+Managing operational data is another challenge encountered when horizontally scaling
+out to many role instances. Operational data is generated during the process of operating
+your application, but is not usually considered part of the business data collected by the
+application itself. Examples of operational data sources:
+-  Logs from IIS or other web servers
+-  Windows Event Log
+- Performance Counters
+- Debug messages output from your application
+- Custom logs generated from your application
 	
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzAwNjIxODQsLTE3MzQ0MDgyNzcsMTQxND
-E0OTQ2NSwtMjMxMzMwMzk1LC0xNTYyMzQ3NTI5LC0xMTM5NDYy
-NDYyLC0xMzAxNDE1MzMyXX0=
+eyJoaXN0b3J5IjpbNTc4MTg0MjcyLDMwMDYyMTg0LC0xNzM0ND
+A4Mjc3LDE0MTQxNDk0NjUsLTIzMTMzMDM5NSwtMTU2MjM0NzUy
+OSwtMTEzOTQ2MjQ2MiwtMTMwMTQxNTMzMl19
 -->
