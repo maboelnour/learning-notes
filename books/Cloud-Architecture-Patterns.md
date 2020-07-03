@@ -119,8 +119,24 @@ must complete before a web request is completed. This model also requires that t
 scalability and availability of the service tier meet or exceed that of the web tier, which
 can be tenuous with third-party services. A service tier that is unreliable or slow can
 ruin the user experience in the web tier and can negatively impact scalability.
+
+Commands are sent in the form of messages over a queue. 
+In the simplest (and most common) scenarios, the pattern is trivial: the sender adds
+command messages to the queue (enqueues messages), and a receiver removes those
+command messages from the queue (dequeues messages) and processes them. 
+
+The sender and receiver are said to be **loosely coupled**. They communicate only through
+messages on a queue. This pattern allows the sender and receiver to operate at different
+paces or schedules; the receiver does not even need to be running when the sender adds
+a message to the queue. Neither one knows anything about the implementation of the
+other, though both sides do need to agree on which queue instance they will use, and
+on the structure of the command message that passes through the queue from sender
+to receiver.
+
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzUxODE3MDczLDMwMDYyMTg0LC0xNzM0ND
-A4Mjc3LDE0MTQxNDk0NjUsLTIzMTMzMDM5NSwtMTU2MjM0NzUy
-OSwtMTEzOTQ2MjQ2MiwtMTMwMTQxNTMzMl19
+eyJoaXN0b3J5IjpbLTE3ODA4NDA5MjYsNzUxODE3MDczLDMwMD
+YyMTg0LC0xNzM0NDA4Mjc3LDE0MTQxNDk0NjUsLTIzMTMzMDM5
+NSwtMTU2MjM0NzUyOSwtMTEzOTQ2MjQ2MiwtMTMwMTQxNTMzMl
+19
 -->
