@@ -1,6 +1,7 @@
 # Cloud Architecture Patterns
 
 ![Cloud Architecture Patterns](https://images-na.ssl-images-amazon.com/images/I/413c-GZAMZL._SX372_BO1,204,203,200_.jpg)
+
 Summarize the `Cloud Architecture Patterns` with external resources.
 
 ## Chapter 1: Scalability Primer
@@ -99,7 +100,7 @@ A node can be kept stateless simply by avoiding storing user session state local
 	**Operational Logs and Metrics:**
 	
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ3MzU1MTgwMiwtMTczNDQwODI3NywxND
-E0MTQ5NDY1LC0yMzEzMzAzOTUsLTE1NjIzNDc1MjksLTExMzk0
-NjI0NjIsLTEzMDE0MTUzMzJdfQ==
+eyJoaXN0b3J5IjpbMzAwNjIxODQsLTE3MzQ0MDgyNzcsMTQxND
+E0OTQ2NSwtMjMxMzMwMzk1LC0xNTYyMzQ3NTI5LC0xMTM5NDYy
+NDYyLC0xMzAxNDE1MzMyXX0=
 -->
