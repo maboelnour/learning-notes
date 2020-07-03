@@ -111,9 +111,16 @@ application itself. Examples of operational data sources:
 	
 ## Chapter 3: Queue-Centric Workflow Pattern
 
-
+The Queue-Centric Workflow Pattern is used in web applications to decouple communication between the web tier (which implements the user interface) and the service tier (where business processing happens).
+Applications that do not use a pattern like this typically respond to a web page request
+by having user interface code call directly into the service tier. This approach is simple,
+but there are challenges in a distributed system. One challenge is that all service calls
+must complete before a web request is completed. This model also requires that the
+scalability and availability of the service tier meet or exceed that of the web tier, which
+can be tenuous with third-party services. A service tier that is unreliable or slow can
+ruin the user experience in the web tier and can negatively impact scalability.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwMjY1MDU1MTUsMzAwNjIxODQsLTE3Mz
-Q0MDgyNzcsMTQxNDE0OTQ2NSwtMjMxMzMwMzk1LC0xNTYyMzQ3
-NTI5LC0xMTM5NDYyNDYyLC0xMzAxNDE1MzMyXX0=
+eyJoaXN0b3J5IjpbNzUxODE3MDczLDMwMDYyMTg0LC0xNzM0ND
+A4Mjc3LDE0MTQxNDk0NjUsLTIzMTMzMDM5NSwtMTU2MjM0NzUy
+OSwtMTEzOTQ2MjQ2MiwtMTMwMTQxNTMzMl19
 -->
