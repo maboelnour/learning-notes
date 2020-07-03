@@ -109,8 +109,11 @@ application itself. Examples of operational data sources:
 - Debug messages output from your application
 - Custom logs generated from your application
 	
+## Chapter 3: Queue-Centric Workflow Pattern
+
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjY4OTQ5NDk2LDMwMDYyMTg0LC0xNzM0ND
-A4Mjc3LDE0MTQxNDk0NjUsLTIzMTMzMDM5NSwtMTU2MjM0NzUy
-OSwtMTEzOTQ2MjQ2MiwtMTMwMTQxNTMzMl19
+eyJoaXN0b3J5IjpbLTIwMjY1MDU1MTUsMzAwNjIxODQsLTE3Mz
+Q0MDgyNzcsMTQxNDE0OTQ2NSwtMjMxMzMwMzk1LC0xNTYyMzQ3
+NTI5LC0xMTM5NDYyNDYyLC0xMzAxNDE1MzMyXX0=
 -->
