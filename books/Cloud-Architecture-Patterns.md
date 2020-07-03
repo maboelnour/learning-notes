@@ -96,6 +96,7 @@ ___
 
 2. **Session state without stateful nodes**
 A node can be kept stateless simply by avoiding storing user session state locally (on the node), but rather storing it externally. Even though session state will not be stored on individual nodes, session state does need to be stored somewhere.
+User state management should be handled without sticky sessions in the web tier. Keeping nodes stateless makes them inter­changeable so that we can add nodes at any time without getting the workloads out of balance and can lose nodes without losing customer state.
 
 **Operational Logs and Metrics:**
 Managing operational data is another challenge encountered when horizontally scaling
@@ -109,7 +110,7 @@ application itself. Examples of operational data sources:
 - Custom logs generated from your application
 	
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTc4MTg0MjcyLDMwMDYyMTg0LC0xNzM0ND
+eyJoaXN0b3J5IjpbMjY4OTQ5NDk2LDMwMDYyMTg0LC0xNzM0ND
 A4Mjc3LDE0MTQxNDk0NjUsLTIzMTMzMDM5NSwtMTU2MjM0NzUy
 OSwtMTEzOTQ2MjQ2MiwtMTMwMTQxNTMzMl19
 -->
