@@ -52,10 +52,19 @@ When stateful nodes hold the only copy of a user’s session state, there are us
 **list here how it's done with nginx**
 
 [**Enabling Session Persistence with NGINX**](https://docs.nginx.com/nginx/admin-guide/load-balancer/http-load-balancer/#enabling-session-persistence)
+Session persistence means that NGINX Plus identifies user sessions and routes all requests in a given session to the same upstream server.
+
+[**Sticky cookie**](https://nginx.org/en/docs/http/ngx_http_upstream_module.html#sticky_cookie) – NGINX Plus adds a session cookie to the first response from the upstream group and identifies the server that sent the response. The client’s next request contains the cookie value and NGINX Plus route the request to the upstream server that responded to the first request:
+
+upstream backend {
+    server backend1.example.com;
+    server backend2.example.com;
+    sticky cookie srv_id expires=1h domain=.example.com path=/;
+}
 
 2. **Session state without stateful nodes**
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1NjIzNDc1MjksLTExMzk0NjI0NjIsLT
-EzMDE0MTUzMzJdfQ==
+eyJoaXN0b3J5IjpbMTA5MzU2OTY2MywtMTU2MjM0NzUyOSwtMT
+EzOTQ2MjQ2MiwtMTMwMTQxNTMzMl19
 -->
