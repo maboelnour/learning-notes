@@ -94,8 +94,11 @@ Session persistence means that NGINX Plus identifies user sessions and routes al
 ___
 2. **Session state without stateful nodes**
 A node can be kept stateless simply by avoiding storing user session state locally (on the node), but rather storing it externally. Even though session state will not be stored on individual nodes, session state does need to be stored somewhere.
+
+	**Operational Logs and Metrics:**
+	
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzUyODg3MDk2LDE0MTQxNDk0NjUsLTIzMT
-MzMDM5NSwtMTU2MjM0NzUyOSwtMTEzOTQ2MjQ2MiwtMTMwMTQx
-NTMzMl19
+eyJoaXN0b3J5IjpbLTE3MzQ0MDgyNzcsMTQxNDE0OTQ2NSwtMj
+MxMzMwMzk1LC0xNTYyMzQ3NTI5LC0xMTM5NDYyNDYyLC0xMzAx
+NDE1MzMyXX0=
 -->
