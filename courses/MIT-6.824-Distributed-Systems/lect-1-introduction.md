@@ -31,9 +31,10 @@ Fault Tolerance:
 
 
 Consistency:
-- `put(k,v)` then `get(k)=v` a cross all replicas
+- `put(k,v)` then `get(k)=v` a cross all replicas.
+- S
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ0NzQzNjgyMiwxMDk3OTczNTkxLC0xNj
+eyJoaXN0b3J5IjpbLTEwNzkwNDYzMCwxMDk3OTczNTkxLC0xNj
 Q1NzkzMjAxLC0xOTA3Njc1NDMwLC0xODQxNzQzMzMxXX0=
 -->
