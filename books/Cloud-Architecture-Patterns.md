@@ -226,12 +226,10 @@ B --> D((C2))
 B --> E((C3))
 ```
 Use this pattern when:
-
 -   The workload for an application is divided into tasks that can run asynchronously.
 -   Tasks are independent and can run in parallel.
 
 This pattern might not be useful when:
-
 -   It's not easy to separate the application workload into discrete tasks, or there's a high degree of dependence between tasks.
 -   Tasks must be performed synchronously, and the application logic must wait for a task to complete before continuing.
 -   Tasks must be performed in a specific sequence.
@@ -249,13 +247,13 @@ D --> J((C3))
 
 We can batch the dependent tasks in the required order in a single queue to ensure order of execution for the messages.
 This can be done inside `RabbitMQ` using `Consistent Hash Exchanges`
-which allows us to partition a single queue into multiple queues and distribute messages between them via a hashing of the routing key, message header or message property (can be done as model.id as the key)
+which allows us to partition a single queue into multiple queues and distribute messages between them via a hashing of the routing key, message header or message property (can be done as object.id as the key)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTYwNTM3NTc2LC0xMzIyODU3MjQsLTEwOT
-Q0MjgzNzUsMzkzNDExMzcyLDk0MDc2OTc2NCwxMzg3MTI4MDgy
-LC0xMTI0MDIxMzA2LC0xNjYwMDI1NDk1LDIwOTg5MTM3MDgsMT
-UxNzgzOTQxNSw0NjM1MjAxMDksMTYwMzIwMzQyNywtMTc4MDg0
-MDkyNiw3NTE4MTcwNzMsMzAwNjIxODQsLTE3MzQ0MDgyNzcsMT
-QxNDE0OTQ2NSwtMjMxMzMwMzk1LC0xNTYyMzQ3NTI5LC0xMTM5
-NDYyNDYyXX0=
+eyJoaXN0b3J5IjpbMjEwNTM3ODA0OCwtMTMyMjg1NzI0LC0xMD
+k0NDI4Mzc1LDM5MzQxMTM3Miw5NDA3Njk3NjQsMTM4NzEyODA4
+MiwtMTEyNDAyMTMwNiwtMTY2MDAyNTQ5NSwyMDk4OTEzNzA4LD
+E1MTc4Mzk0MTUsNDYzNTIwMTA5LDE2MDMyMDM0MjcsLTE3ODA4
+NDA5MjYsNzUxODE3MDczLDMwMDYyMTg0LC0xNzM0NDA4Mjc3LD
+E0MTQxNDk0NjUsLTIzMTMzMDM5NSwtMTU2MjM0NzUyOSwtMTEz
+OTQ2MjQ2Ml19
 -->
