@@ -216,7 +216,7 @@ The queue length and the time messages spend in the queue are useful environment
 ### EXTRA (Not from the book): 
 
 **Different architectures to process messages**
-1.
+1. Competing Consumers pattern:
 ```mermaid
 graph LR
 A((P1)) --> B[Queue1] 
@@ -224,6 +224,18 @@ B --> C((C1))
 B --> D((C2))
 B --> E((C3))
 ```
+Use this pattern when:
+
+-   The workload for an application is divided into tasks that can run asynchronously.
+-   Tasks are independent and can run in parallel.
+-   The volume of work is highly variable, requiring a scalable solution.
+-   The solution must provide high availability, and must be resilient if the processing for a task fails.
+
+This pattern might not be useful when:
+
+-   It's not easy to separate the application workload into discrete tasks, or there's a high degree of dependence between tasks.
+-   Tasks must be performed synchronously, and the application logic must wait for a task to complete before continuing.
+-   Tasks must be performed in a specific sequence.
 ---
 
 ```mermaid
@@ -237,10 +249,11 @@ D --> J((C3))
 
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzkzNDExMzcyLDk0MDc2OTc2NCwxMzg3MT
-I4MDgyLC0xMTI0MDIxMzA2LC0xNjYwMDI1NDk1LDIwOTg5MTM3
-MDgsMTUxNzgzOTQxNSw0NjM1MjAxMDksMTYwMzIwMzQyNywtMT
-c4MDg0MDkyNiw3NTE4MTcwNzMsMzAwNjIxODQsLTE3MzQ0MDgy
-NzcsMTQxNDE0OTQ2NSwtMjMxMzMwMzk1LC0xNTYyMzQ3NTI5LC
-0xMTM5NDYyNDYyLC0xMzAxNDE1MzMyXX0=
+eyJoaXN0b3J5IjpbLTEwOTQ0MjgzNzUsMzkzNDExMzcyLDk0MD
+c2OTc2NCwxMzg3MTI4MDgyLC0xMTI0MDIxMzA2LC0xNjYwMDI1
+NDk1LDIwOTg5MTM3MDgsMTUxNzgzOTQxNSw0NjM1MjAxMDksMT
+YwMzIwMzQyNywtMTc4MDg0MDkyNiw3NTE4MTcwNzMsMzAwNjIx
+ODQsLTE3MzQ0MDgyNzcsMTQxNDE0OTQ2NSwtMjMxMzMwMzk1LC
+0xNTYyMzQ3NTI5LC0xMTM5NDYyNDYyLC0xMzAxNDE1MzMyXX0=
+
 -->
