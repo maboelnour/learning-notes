@@ -114,13 +114,8 @@ application itself. Examples of operational data sources:
 ## Chapter 3: Queue-Centric Workflow Pattern
 
 The Queue-Centric Workflow Pattern is used in web applications to decouple communication between the web tier (which implements the user interface) and the service tier (where business processing happens).
-Applications that do not use a pattern like this typically respond to a web page request
-by having user interface code call directly into the service tier. This approach is simple,
-but there are challenges in a distributed system. One challenge is that all service calls
-must complete before a web request is completed. This model also requires that the
-scalability and availability of the service tier meet or exceed that of the web tier, which
-can be tenuous with third-party services. A service tier that is unreliable or slow can
-ruin the user experience in the web tier and can negatively impact scalability.
+Applications that do not use a pattern like this typically respond to a web page request by having user interface code call directly into the service tier. This approach is simple,
+but there are challenges in a distributed system. One challenge is that all service calls must complete before a web request is completed. This model also requires that the scalability and availability of the service tier meet or exceed that of the web tier, which can be tenuous with third-party services. A service tier that is unreliable or slow can ruin the user experience in the web tier and can negatively impact scalability.
 
 Commands are sent in the form of messages over a queue. 
 In the simplest (and most common) scenarios, the pattern is trivial: the sender adds command messages to the queue (enqueues messages), and a receiver removes those command messages from the queue (dequeues messages) and processes them. 
@@ -229,7 +224,7 @@ which allows us to partition a single queue into multiple queues and distribute 
 
 ## Chapter 4: Auto-Scaling Pattern
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTkwMTc4OTEzMSwyMTA1Mzc4MDQ4LC0xMz
+eyJoaXN0b3J5IjpbLTMzMzY0MDUxMSwyMTA1Mzc4MDQ4LC0xMz
 IyODU3MjQsLTEwOTQ0MjgzNzUsMzkzNDExMzcyLDk0MDc2OTc2
 NCwxMzg3MTI4MDgyLC0xMTI0MDIxMzA2LC0xNjYwMDI1NDk1LD
 IwOTg5MTM3MDgsMTUxNzgzOTQxNSw0NjM1MjAxMDksMTYwMzIw
