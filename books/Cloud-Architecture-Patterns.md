@@ -216,11 +216,15 @@ The queue length and the time messages spend in the queue are useful environment
 ### EXTRA (Not from the book): 
 
 **Different architectures to process messages**
+
+```mermaid
+graph LR
+A((P1)) --> B[Queue1] -->
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTQwNzY5NzY0LDEzODcxMjgwODIsLTExMj
-QwMjEzMDYsLTE2NjAwMjU0OTUsMjA5ODkxMzcwOCwxNTE3ODM5
-NDE1LDQ2MzUyMDEwOSwxNjAzMjAzNDI3LC0xNzgwODQwOTI2LD
-c1MTgxNzA3MywzMDA2MjE4NCwtMTczNDQwODI3NywxNDE0MTQ5
-NDY1LC0yMzEzMzAzOTUsLTE1NjIzNDc1MjksLTExMzk0NjI0Nj
-IsLTEzMDE0MTUzMzJdfQ==
+eyJoaXN0b3J5IjpbLTkxNzEwMzY1Nyw5NDA3Njk3NjQsMTM4Nz
+EyODA4MiwtMTEyNDAyMTMwNiwtMTY2MDAyNTQ5NSwyMDk4OTEz
+NzA4LDE1MTc4Mzk0MTUsNDYzNTIwMTA5LDE2MDMyMDM0MjcsLT
+E3ODA4NDA5MjYsNzUxODE3MDczLDMwMDYyMTg0LC0xNzM0NDA4
+Mjc3LDE0MTQxNDk0NjUsLTIzMTMzMDM5NSwtMTU2MjM0NzUyOS
+wtMTEzOTQ2MjQ2MiwtMTMwMTQxNTMzMl19
 -->
