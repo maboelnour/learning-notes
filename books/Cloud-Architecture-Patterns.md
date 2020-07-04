@@ -3,6 +3,7 @@
 ![Cloud Architecture Patterns](https://images-na.ssl-images-amazon.com/images/I/413c-GZAMZL._SX372_BO1,204,203,200_.jpg)
 
 Summarize the `Cloud Architecture Patterns` with external resources.
+par
 
 ## Chapter 1: Scalability Primer
 
@@ -247,16 +248,16 @@ D --> J((C3))
 ```
 
 We can batch the dependent tasks in the required order in a single queue to ensure order of execution for the messages.
-This can be done inside `RabbitMQ` using `Consistent Hash Exchanges`
+This can be done inside `RabbitMQ` using [`Consistent Hash Exchanges`](https://jack-vanlightly.com/blog/2017/12/5/rabbitmq-vs-kafka-part-2-rabbitmq-messaging-patterns-and-topologies)
 which allows us to partition a single queue into multiple queues and distribute messages between them via a hashing of the routing key, message header or message property (can be done as object.id as the key)
 
 ## Chapter 4: Auto-Scaling Pattern
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTgxNjI3MjkzLDIxMDUzNzgwNDgsLTEzMj
-I4NTcyNCwtMTA5NDQyODM3NSwzOTM0MTEzNzIsOTQwNzY5NzY0
-LDEzODcxMjgwODIsLTExMjQwMjEzMDYsLTE2NjAwMjU0OTUsMj
-A5ODkxMzcwOCwxNTE3ODM5NDE1LDQ2MzUyMDEwOSwxNjAzMjAz
-NDI3LC0xNzgwODQwOTI2LDc1MTgxNzA3MywzMDA2MjE4NCwtMT
-czNDQwODI3NywxNDE0MTQ5NDY1LC0yMzEzMzAzOTUsLTE1NjIz
-NDc1MjldfQ==
+eyJoaXN0b3J5IjpbMTYwNDQ1OTY5MCwyMTA1Mzc4MDQ4LC0xMz
+IyODU3MjQsLTEwOTQ0MjgzNzUsMzkzNDExMzcyLDk0MDc2OTc2
+NCwxMzg3MTI4MDgyLC0xMTI0MDIxMzA2LC0xNjYwMDI1NDk1LD
+IwOTg5MTM3MDgsMTUxNzgzOTQxNSw0NjM1MjAxMDksMTYwMzIw
+MzQyNywtMTc4MDg0MDkyNiw3NTE4MTcwNzMsMzAwNjIxODQsLT
+E3MzQ0MDgyNzcsMTQxNDE0OTQ2NSwtMjMxMzMwMzk1LC0xNTYy
+MzQ3NTI5XX0=
 -->
