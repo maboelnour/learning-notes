@@ -133,10 +133,12 @@ other, though both sides do need to agree on which queue instance they will use,
 on the structure of the command message that passes through the queue from sender
 to receiver.
 
+Invisibility window and at-least-once processing
+
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3ODA4NDA5MjYsNzUxODE3MDczLDMwMD
-YyMTg0LC0xNzM0NDA4Mjc3LDE0MTQxNDk0NjUsLTIzMTMzMDM5
-NSwtMTU2MjM0NzUyOSwtMTEzOTQ2MjQ2MiwtMTMwMTQxNTMzMl
-19
+eyJoaXN0b3J5IjpbLTMzMDM2NjE4MiwtMTc4MDg0MDkyNiw3NT
+E4MTcwNzMsMzAwNjIxODQsLTE3MzQ0MDgyNzcsMTQxNDE0OTQ2
+NSwtMjMxMzMwMzk1LC0xNTYyMzQ3NTI5LC0xMTM5NDYyNDYyLC
+0xMzAxNDE1MzMyXX0=
 -->
