@@ -164,15 +164,20 @@ possibility that some (or all) of the processing work has been done previously a
 needs to act smartly. Exactly how to “act smartly” will vary from application to appli­cation
 
 ---
-### EXTRA (Not from the book):
+### EXTRA (Not from the book): 
+
+Processing of `requeued` messages can be done in `RabbitMQ` with checking for the `Redelivered` flag
+
+
 
 ---
+
 **Poison messages**
 
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc0NzE5MDAyNCwtMTY2MDAyNTQ5NSwyMD
+eyJoaXN0b3J5IjpbMTg0MzA3NTc4NywtMTY2MDAyNTQ5NSwyMD
 k4OTEzNzA4LDE1MTc4Mzk0MTUsNDYzNTIwMTA5LDE2MDMyMDM0
 MjcsLTE3ODA4NDA5MjYsNzUxODE3MDczLDMwMDYyMTg0LC0xNz
 M0NDA4Mjc3LDE0MTQxNDk0NjUsLTIzMTMzMDM5NSwtMTU2MjM0
