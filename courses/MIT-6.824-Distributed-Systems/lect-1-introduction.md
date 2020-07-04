@@ -12,11 +12,11 @@ challenges:
 - partial failure
 - performance 
 
-DS infrastructure:
+DS infrastructure (Abstractions):
 - Storage
 - Communication
-- Computation 
+- Computation.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5MDc2NzU0MzAsLTE4NDE3NDMzMzFdfQ
-==
+eyJoaXN0b3J5IjpbLTg1NzIyOTEyNiwtMTkwNzY3NTQzMCwtMT
+g0MTc0MzMzMV19
 -->
