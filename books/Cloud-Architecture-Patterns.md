@@ -133,11 +133,19 @@ other, though both sides do need to agree on which queue instance they will use,
 on the structure of the command message that passes through the queue from sender
 to receiver.
 
-Invisibility window and at-least-once processing
+**reaInvisibility window and at-least-once processing**
+During a message’s invisibility window, there is usually exactly one copy of the message
+being processed. There are a couple of edge cases where this might not be true. One edge
+case is when the code processing the message has not finished, but the invisibility window
+lapses, and another copy of the same message gets dequeued. At this point, there are two
+active copies of that message being processed. If this happens, it may be due to a bug in
+your code. Instead of exceeding the invisibility window, you should inform the queue that
+you are still working on this message and increase its invisibility window to allow sufficient
+time with exclusive access.
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTMzMDM2NjE4MiwtMTc4MDg0MDkyNiw3NT
+eyJoaXN0b3J5IjpbMTYwMzIwMzQyNywtMTc4MDg0MDkyNiw3NT
 E4MTcwNzMsMzAwNjIxODQsLTE3MzQ0MDgyNzcsMTQxNDE0OTQ2
 NSwtMjMxMzMwMzk1LC0xNTYyMzQ3NTI5LC0xMTM5NDYyNDYyLC
 0xMzAxNDE1MzMyXX0=
