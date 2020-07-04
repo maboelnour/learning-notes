@@ -188,10 +188,21 @@ will lapse, and the message will appear on the queue again for another attempt. 
 for idempotent handling for that scenario is explained in the previous section. When
 dealing with a poison message, the idempotent handling will never terminate.
 
+---
+### EXTRA (Not from the book): 
+
+If our application crashes while processing a message, eventually its invisibility window
+will lapse, and the message will appear on the queue again for another attempt. The need
+for idempotent handling for that scenario is explained in the previous section. When
+dealing with a poison message, the idempotent handling will never terminate.
+
+---
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExMjQwMjEzMDYsLTE2NjAwMjU0OTUsMj
-A5ODkxMzcwOCwxNTE3ODM5NDE1LDQ2MzUyMDEwOSwxNjAzMjAz
-NDI3LC0xNzgwODQwOTI2LDc1MTgxNzA3MywzMDA2MjE4NCwtMT
-czNDQwODI3NywxNDE0MTQ5NDY1LC0yMzEzMzAzOTUsLTE1NjIz
-NDc1MjksLTExMzk0NjI0NjIsLTEzMDE0MTUzMzJdfQ==
+eyJoaXN0b3J5IjpbMTQ3NjYyMTExNiwtMTEyNDAyMTMwNiwtMT
+Y2MDAyNTQ5NSwyMDk4OTEzNzA4LDE1MTc4Mzk0MTUsNDYzNTIw
+MTA5LDE2MDMyMDM0MjcsLTE3ODA4NDA5MjYsNzUxODE3MDczLD
+MwMDYyMTg0LC0xNzM0NDA4Mjc3LDE0MTQxNDk0NjUsLTIzMTMz
+MDM5NSwtMTU2MjM0NzUyOSwtMTEzOTQ2MjQ2MiwtMTMwMTQxNT
+MzMl19
 -->
