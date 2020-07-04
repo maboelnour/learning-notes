@@ -190,9 +190,9 @@ dealing with a poison message, the idempotent handling will never terminate.
 ### EXTRA (Not from the book): 
 **How dealing with poison messages done inside `RabbitMQ`?**
 
-Quorum queue support handling of [poison messages](https://en.wikipedia.org/wiki/Poison_message), that is, messages that cause a consumer to repeatedly requeue a delivery (possibly due to a consumer failure) such that the message is never consumed completely and [positively acknowledged](https://www.rabbitmq.com/confirms.html) so that it can be marked for deletion by RabbitMQ.
+[Quorum queue](https://www.rabbitmq.com/quorum-queues.html) support handling of [poison messages](https://en.wikipedia.org/wiki/Poison_message), that is, messages that cause a consumer to repeatedly requeue a delivery (possibly due to a consumer failure) such that the message is never consumed completely and [positively acknowledged](https://www.rabbitmq.com/confirms.html) so that it can be marked for deletion by RabbitMQ.
 
-Quorum queues keep track of the number of unsuccessful delivery attempts and expose it in the "x-delivery-count" header that is included with any redelivered message.
+Quorum queues keep track of the number of unsuccessful delivery attempts and expose it in the `x-delivery-count` header that is included with any redelivered message.
 
 It is possible to set a delivery limit for a queue using a [policy](https://www.rabbitmq.com/parameters.html#policies) argument, delivery-limit.
 
@@ -201,10 +201,10 @@ When a message has been returned more times than the limit the message will be d
 ---
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE5NDYxOTg4LC0xMTI0MDIxMzA2LC0xNj
-YwMDI1NDk1LDIwOTg5MTM3MDgsMTUxNzgzOTQxNSw0NjM1MjAx
-MDksMTYwMzIwMzQyNywtMTc4MDg0MDkyNiw3NTE4MTcwNzMsMz
-AwNjIxODQsLTE3MzQ0MDgyNzcsMTQxNDE0OTQ2NSwtMjMxMzMw
-Mzk1LC0xNTYyMzQ3NTI5LC0xMTM5NDYyNDYyLC0xMzAxNDE1Mz
-MyXX0=
+eyJoaXN0b3J5IjpbMTcyMjI2MTc4MCwtMTEyNDAyMTMwNiwtMT
+Y2MDAyNTQ5NSwyMDk4OTEzNzA4LDE1MTc4Mzk0MTUsNDYzNTIw
+MTA5LDE2MDMyMDM0MjcsLTE3ODA4NDA5MjYsNzUxODE3MDczLD
+MwMDYyMTg0LC0xNzM0NDA4Mjc3LDE0MTQxNDk0NjUsLTIzMTMz
+MDM5NSwtMTU2MjM0NzUyOSwtMTEzOTQ2MjQ2MiwtMTMwMTQxNT
+MzMl19
 -->
