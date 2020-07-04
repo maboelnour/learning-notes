@@ -233,6 +233,7 @@ This pattern might not be useful when:
 -   It's not easy to separate the application workload into discrete tasks, or there's a high degree of dependence between tasks.
 -   Tasks must be performed synchronously, and the application logic must wait for a task to complete before continuing.
 -   Tasks must be performed in a specific sequence.
+- Amount of messages are large enough to be handled by one queue.
 
 **2. Multi Queues:**
 ```mermaid
@@ -248,12 +249,14 @@ D --> J((C3))
 We can batch the dependent tasks in the required order in a single queue to ensure order of execution for the messages.
 This can be done inside `RabbitMQ` using `Consistent Hash Exchanges`
 which allows us to partition a single queue into multiple queues and distribute messages between them via a hashing of the routing key, message header or message property (can be done as object.id as the key)
+
+## Chapter 4: Auto-Scaling Pattern
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjEwNTM3ODA0OCwtMTMyMjg1NzI0LC0xMD
-k0NDI4Mzc1LDM5MzQxMTM3Miw5NDA3Njk3NjQsMTM4NzEyODA4
-MiwtMTEyNDAyMTMwNiwtMTY2MDAyNTQ5NSwyMDk4OTEzNzA4LD
-E1MTc4Mzk0MTUsNDYzNTIwMTA5LDE2MDMyMDM0MjcsLTE3ODA4
-NDA5MjYsNzUxODE3MDczLDMwMDYyMTg0LC0xNzM0NDA4Mjc3LD
-E0MTQxNDk0NjUsLTIzMTMzMDM5NSwtMTU2MjM0NzUyOSwtMTEz
-OTQ2MjQ2Ml19
+eyJoaXN0b3J5IjpbNTgxNjI3MjkzLDIxMDUzNzgwNDgsLTEzMj
+I4NTcyNCwtMTA5NDQyODM3NSwzOTM0MTEzNzIsOTQwNzY5NzY0
+LDEzODcxMjgwODIsLTExMjQwMjEzMDYsLTE2NjAwMjU0OTUsMj
+A5ODkxMzcwOCwxNTE3ODM5NDE1LDQ2MzUyMDEwOSwxNjAzMjAz
+NDI3LC0xNzgwODQwOTI2LDc1MTgxNzA3MywzMDA2MjE4NCwtMT
+czNDQwODI3NywxNDE0MTQ5NDY1LC0yMzEzMzAzOTUsLTE1NjIz
+NDc1MjldfQ==
 -->
