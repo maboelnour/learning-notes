@@ -21,7 +21,11 @@ Implementation:
 - RPC
 - Threads
 - Concurrency control
+
+Performance:
+- Scalability
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTEyMTE2MzksLTE5MDc2NzU0MzAsLTE4ND
-E3NDMzMzFdfQ==
+eyJoaXN0b3J5IjpbOTY0OTUxNTY3LC0xOTA3Njc1NDMwLC0xOD
+QxNzQzMzMxXX0=
 -->
