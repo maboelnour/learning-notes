@@ -29,7 +29,11 @@ Fault Tolerance:
 - Availability: under a predefined set of failures, the service should u[ and running.
 - Recoverability.
 
+
+Consistency:
+- 
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA5Nzk3MzU5MSwtMTY0NTc5MzIwMSwtMT
-kwNzY3NTQzMCwtMTg0MTc0MzMzMV19
+eyJoaXN0b3J5IjpbLTE4NDc2NjA3MTAsMTA5Nzk3MzU5MSwtMT
+Y0NTc5MzIwMSwtMTkwNzY3NTQzMCwtMTg0MTc0MzMzMV19
 -->
