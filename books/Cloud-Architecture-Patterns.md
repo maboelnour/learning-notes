@@ -186,6 +186,11 @@ will lapse, and the message will appear on the queue again for another attempt. 
 for idempotent handling for that scenario is explained in the previous section. When
 dealing with a poison message, the idempotent handling will never terminate.
 
+Once a poison message has been identified, deciding how to deal with it is another
+business decision. If it is desirable to have a human review the poison messages to con­
+sider how to improve handling, then one approach is to use what is known as a dead
+letter queue, a place for storing messages that cannot be processed normally.
+
 ---
 ### EXTRA (Not from the book): 
 **How dealing with poison messages done inside `RabbitMQ`?**
@@ -200,8 +205,10 @@ When a message has been returned more times than the limit the message will be d
 
 ---
 
+
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTcyMjI2MTc4MCwtMTEyNDAyMTMwNiwtMT
+eyJoaXN0b3J5IjpbMTAwMTc4NjAxMCwtMTEyNDAyMTMwNiwtMT
 Y2MDAyNTQ5NSwyMDk4OTEzNzA4LDE1MTc4Mzk0MTUsNDYzNTIw
 MTA5LDE2MDMyMDM0MjcsLTE3ODA4NDA5MjYsNzUxODE3MDczLD
 MwMDYyMTg0LC0xNzM0NDA4Mjc3LDE0MTQxNDk0NjUsLTIzMTMz
