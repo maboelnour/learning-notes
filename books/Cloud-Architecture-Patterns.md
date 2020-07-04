@@ -206,22 +206,16 @@ When a message has been returned more times than the limit the message will be d
 ---
 
 
-A full CQRS treatment would also consider event sourcing and Domain Driven Design
-(DDD). With event sourcing, as commands result in system state changes, resulting change
-events are captured and stored individually rather than simply reflecting the change in the
-master data. For example, an address changed event would hold the new address information rather than just overwrite a single address field in a database. The result is a
-chronological history that can be replayed to arrive at current state (or any state along the
-way). Using event sourcing may simplify handling idempotent operations. DDD is a
-technology-agnostic methodology to understand business context. Neither event sourcing
-nor DDD are required with CQRS, but they are frequently used together.
+A full CQRS treatment would also consider event sourcing and Domain Driven Design (DDD). With event sourcing, as commands result in system state changes, resulting change events are captured and stored individually rather than simply reflecting the change in the master data. For example, an address changed event would hold the new address information rather than just overwrite a single address field in a database. The result is a chronological history that can be replayed to arrive at current state (or any state along the
+way). Using event sourcing may simplify handling idempotent operations. DDD is a technology-agnostic methodology to understand business context. Neither event sourcing nor DDD are required with CQRS, but they are frequently used together.
 
 **Scaling Tiers Independently**
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM4NzEyODA4MiwtMTEyNDAyMTMwNiwtMT
-Y2MDAyNTQ5NSwyMDk4OTEzNzA4LDE1MTc4Mzk0MTUsNDYzNTIw
-MTA5LDE2MDMyMDM0MjcsLTE3ODA4NDA5MjYsNzUxODE3MDczLD
-MwMDYyMTg0LC0xNzM0NDA4Mjc3LDE0MTQxNDk0NjUsLTIzMTMz
-MDM5NSwtMTU2MjM0NzUyOSwtMTEzOTQ2MjQ2MiwtMTMwMTQxNT
-MzMl19
+eyJoaXN0b3J5IjpbLTk3OTg0MTU3NCwxMzg3MTI4MDgyLC0xMT
+I0MDIxMzA2LC0xNjYwMDI1NDk1LDIwOTg5MTM3MDgsMTUxNzgz
+OTQxNSw0NjM1MjAxMDksMTYwMzIwMzQyNywtMTc4MDg0MDkyNi
+w3NTE4MTcwNzMsMzAwNjIxODQsLTE3MzQ0MDgyNzcsMTQxNDE0
+OTQ2NSwtMjMxMzMwMzk1LC0xNTYyMzQ3NTI5LC0xMTM5NDYyND
+YyLC0xMzAxNDE1MzMyXX0=
 -->
