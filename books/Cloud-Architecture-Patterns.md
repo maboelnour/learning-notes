@@ -228,16 +228,14 @@ Use this pattern when:
 
 -   The workload for an application is divided into tasks that can run asynchronously.
 -   Tasks are independent and can run in parallel.
--   The volume of work is highly variable, requiring a scalable solution.
--   The solution must provide high availability, and must be resilient if the processing for a task fails.
 
 This pattern might not be useful when:
 
 -   It's not easy to separate the application workload into discrete tasks, or there's a high degree of dependence between tasks.
 -   Tasks must be performed synchronously, and the application logic must wait for a task to complete before continuing.
 -   Tasks must be performed in a specific sequence.
----
 
+2. Multi Queue
 ```mermaid
 graph LR
 A((P1)) --> B[Queue1] 
@@ -249,11 +247,11 @@ D --> J((C3))
 
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwOTQ0MjgzNzUsMzkzNDExMzcyLDk0MD
-c2OTc2NCwxMzg3MTI4MDgyLC0xMTI0MDIxMzA2LC0xNjYwMDI1
-NDk1LDIwOTg5MTM3MDgsMTUxNzgzOTQxNSw0NjM1MjAxMDksMT
-YwMzIwMzQyNywtMTc4MDg0MDkyNiw3NTE4MTcwNzMsMzAwNjIx
-ODQsLTE3MzQ0MDgyNzcsMTQxNDE0OTQ2NSwtMjMxMzMwMzk1LC
-0xNTYyMzQ3NTI5LC0xMTM5NDYyNDYyLC0xMzAxNDE1MzMyXX0=
-
+eyJoaXN0b3J5IjpbMTM2ODQ3OTI0MywtMTA5NDQyODM3NSwzOT
+M0MTEzNzIsOTQwNzY5NzY0LDEzODcxMjgwODIsLTExMjQwMjEz
+MDYsLTE2NjAwMjU0OTUsMjA5ODkxMzcwOCwxNTE3ODM5NDE1LD
+Q2MzUyMDEwOSwxNjAzMjAzNDI3LC0xNzgwODQwOTI2LDc1MTgx
+NzA3MywzMDA2MjE4NCwtMTczNDQwODI3NywxNDE0MTQ5NDY1LC
+0yMzEzMzAzOTUsLTE1NjIzNDc1MjksLTExMzk0NjI0NjIsLTEz
+MDE0MTUzMzJdfQ==
 -->
