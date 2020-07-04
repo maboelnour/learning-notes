@@ -3,7 +3,7 @@
 ![Cloud Architecture Patterns](https://images-na.ssl-images-amazon.com/images/I/413c-GZAMZL._SX372_BO1,204,203,200_.jpg)
 
 Summarize the `Cloud Architecture Patterns` with external resources.
-par
+Paragraphs marked with `[EXTRA]`  aren't from the book.
 
 ## Chapter 1: Scalability Primer
 
@@ -52,7 +52,8 @@ When stateful nodes hold the only copy of a user’s session state, there are us
 - Sessions may also be unevenly distributed as node instances come and go. Suppose your web tier has two web server nodes, each with 1,000 active sessions. You add a third node to handle the expected spike in traffic during lunchtime. The typical load balancer ran­domly distributes new requests across all nodes. It will not have enough information to send new sessions to the newly added node until it also has 1,000 active sessions. It is effectively “catching up” to the other nodes in the rotation. Each of the 3 nodes will get approximately one-third of the next 1,000 new sessions, resulting in an imbalance.
 
 ___
-### EXTRA (Not from the book):
+### [EXTRA]
+
 [**Enabling Session Persistence with NGINX**](https://docs.nginx.com/nginx/admin-guide/load-balancer/http-load-balancer/#enabling-session-persistence)
 Session persistence means that NGINX Plus identifies user sessions and routes all requests in a given session to the same upstream server.
 
@@ -145,7 +146,7 @@ you are still working on this message and increase its invisibility window to al
 time with exclusive access.
 
 ---
-### EXTRA (Not from the book):
+### [EXTRA]
 
 **How confirmation is done inside `RabbitMQ`?** From [RabbitMQ Reliability Guide:](https://www.rabbitmq.com/reliability.html)
 
@@ -253,7 +254,7 @@ which allows us to partition a single queue into multiple queues and distribute 
 
 ## Chapter 4: Auto-Scaling Pattern
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTYwNDQ1OTY5MCwyMTA1Mzc4MDQ4LC0xMz
+eyJoaXN0b3J5IjpbMTIzMzc0MTIyMywyMTA1Mzc4MDQ4LC0xMz
 IyODU3MjQsLTEwOTQ0MjgzNzUsMzkzNDExMzcyLDk0MDc2OTc2
 NCwxMzg3MTI4MDgyLC0xMTI0MDIxMzA2LC0xNjYwMDI1NDk1LD
 IwOTg5MTM3MDgsMTUxNzgzOTQxNSw0NjM1MjAxMDksMTYwMzIw
