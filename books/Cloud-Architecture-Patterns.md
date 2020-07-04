@@ -166,7 +166,9 @@ needs to act smartly. Exactly how to “act smartly” will vary from applicatio
 ---
 ### EXTRA (Not from the book): 
 
-Processing of `requeued` messages can be done in `RabbitMQ` with checking for the `Redelivered` flag
+Processing of `requeued` messages can be done in `RabbitMQ` with checking for the [`Redelivered`](https://www.rabbitmq.com/consumers.html#message-properties) flag.
+
+Or can be done by keeping a `track` of 
 
 
 
@@ -177,7 +179,7 @@ Processing of `requeued` messages can be done in `RabbitMQ` with checking for th
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg0MzA3NTc4NywtMTY2MDAyNTQ5NSwyMD
+eyJoaXN0b3J5IjpbMjAyMzY2NDY1NSwtMTY2MDAyNTQ5NSwyMD
 k4OTEzNzA4LDE1MTc4Mzk0MTUsNDYzNTIwMTA5LDE2MDMyMDM0
 MjcsLTE3ODA4NDA5MjYsNzUxODE3MDczLDMwMDYyMTg0LC0xNz
 M0NDA4Mjc3LDE0MTQxNDk0NjUsLTIzMTMzMDM5NSwtMTU2MjM0
