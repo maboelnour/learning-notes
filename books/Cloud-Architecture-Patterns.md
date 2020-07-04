@@ -146,9 +146,17 @@ time with exclusive access.
 ---
 ### EXTRA (Not from the book):
 
-How confirmation is done inside `RabbitMQ`
+**How confirmation is done inside `RabbitMQ`?** From [RabbitMQ Reliability Guide:](https://www.rabbitmq.com/reliability.html)
+
+Acknowledgements therefore have semantics. A consuming application should not acknowledge messages until it has done whatever it needs to do with them: recorded them in a data store, forwarded them on, or perform any other operation. Once it does so, the broker is free to mark the delivery for deletion.
+
+Similarly, the broker will confirm messages once it has taken responsibility for them. The details are covered in the [Acknowledgements and Confirms guide](https://www.rabbitmq.com/confirms.html).
+
+Use of acknowledgements guarantees **at least once** delivery. Without acknowledgements, message loss is possible during publish and consume operations and only **at most once** delivery is guaranteed.
+
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg5MTY4NDk0LDE2MDMyMDM0MjcsLTE3OD
+eyJoaXN0b3J5IjpbNDYzNTIwMTA5LDE2MDMyMDM0MjcsLTE3OD
 A4NDA5MjYsNzUxODE3MDczLDMwMDYyMTg0LC0xNzM0NDA4Mjc3
 LDE0MTQxNDk0NjUsLTIzMTMzMDM5NSwtMTU2MjM0NzUyOSwtMT
 EzOTQ2MjQ2MiwtMTMwMTQxNTMzMl19
