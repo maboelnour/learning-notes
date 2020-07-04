@@ -3,7 +3,8 @@ reasons fofr distributed computing
 - parallelism
 - fault tolerance
 - physical
-- security
+- security / isolation
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTAzMzk4NDc0NV19
+eyJoaXN0b3J5IjpbLTE0NTE3NTc2MzhdfQ==
 -->
