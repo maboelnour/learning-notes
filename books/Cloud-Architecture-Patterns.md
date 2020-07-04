@@ -188,7 +188,7 @@ The queue length and the time messages spend in the queue are useful environment
 ### [EXTRA]
 
 
-**Different architectures to process messages**
+**Different scaled architectures to process messages**
 
 **1. Competing Consumers pattern:**
 ```mermaid
@@ -225,7 +225,7 @@ which allows us to partition a single queue into multiple queues and distribute 
 
 ## Chapter 4: Auto-Scaling Pattern
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTgwOTgyOTE1OSwyMTA1Mzc4MDQ4LC0xMz
+eyJoaXN0b3J5IjpbMTU5NDU2NzAwMywyMTA1Mzc4MDQ4LC0xMz
 IyODU3MjQsLTEwOTQ0MjgzNzUsMzkzNDExMzcyLDk0MDc2OTc2
 NCwxMzg3MTI4MDgyLC0xMTI0MDIxMzA2LC0xNjYwMDI1NDk1LD
 IwOTg5MTM3MDgsMTUxNzgzOTQxNSw0NjM1MjAxMDksMTYwMzIw
