@@ -25,9 +25,10 @@ Implementation:
 Performance:
 - Scalability  
 
-Fault Tolarance: 
+Fault Tolerance: 
+- Availability: under a predefined set of failures, the service should u[ and running.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU1NzY3ODY2OCwtMTY0NTc5MzIwMSwtMT
+eyJoaXN0b3J5IjpbLTE3NzQzNjM2MiwtMTY0NTc5MzIwMSwtMT
 kwNzY3NTQzMCwtMTg0MTc0MzMzMV19
 -->
