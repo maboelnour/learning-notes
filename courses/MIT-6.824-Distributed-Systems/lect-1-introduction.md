@@ -36,10 +36,12 @@ Consistency:
 - Lowering communication cost by putting the replicas close to each other collide with `fault tolerant` system.
 
 
+### Map Reduce pattern
+
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY4NjEyNjc5MywtMjM3MjMyODA1LDEwOT
-c5NzM1OTEsLTE2NDU3OTMyMDEsLTE5MDc2NzU0MzAsLTE4NDE3
-NDMzMzFdfQ==
+eyJoaXN0b3J5IjpbMzAwMjAxNDIsLTIzNzIzMjgwNSwxMDk3OT
+czNTkxLC0xNjQ1NzkzMjAxLC0xOTA3Njc1NDMwLC0xODQxNzQz
+MzMxXX0=
 -->
