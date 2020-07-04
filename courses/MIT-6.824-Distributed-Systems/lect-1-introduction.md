@@ -25,7 +25,9 @@ Implementation:
 Performance:
 - Scalability  
 
+Fault Tolarance: 
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2NDU3OTMyMDEsLTE5MDc2NzU0MzAsLT
-E4NDE3NDMzMzFdfQ==
+eyJoaXN0b3J5IjpbMTU1NzY3ODY2OCwtMTY0NTc5MzIwMSwtMT
+kwNzY3NTQzMCwtMTg0MTc0MzMzMV19
 -->
