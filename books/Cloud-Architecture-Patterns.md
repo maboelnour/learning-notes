@@ -210,9 +210,17 @@ A full CQRS treatment would also consider event sourcing and Domain Driven Desig
 way). Using event sourcing may simplify handling idempotent operations. DDD is a technology-agnostic methodology to understand business context. Neither event sourcing nor DDD are required with CQRS, but they are frequently used together.
 
 **Scaling Tiers Independently**
+The queue length and the time messages spend in the queue are useful environmental signals for auto-scaling. The cloud queue services make these key metrics readily avail­able. A growing queue may indicate the need to increase capacity in the service tier, for example. Note that the signals might indicate that only one tier or one specific processing service needs to be scaled. This concern-independent scaling helps to optimize for cost and efficiency. At very high scale, the queue itself could become a bottleneck requiring multiple queue instances. This does not change the core pattern.
 
+~~~dsd
+sdsdsd
+~~~
+
+```
+sdsdsdsd
+```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk3OTg0MTU3NCwxMzg3MTI4MDgyLC0xMT
+eyJoaXN0b3J5IjpbMTkyODkzNjYxMywxMzg3MTI4MDgyLC0xMT
 I0MDIxMzA2LC0xNjYwMDI1NDk1LDIwOTg5MTM3MDgsMTUxNzgz
 OTQxNSw0NjM1MjAxMDksMTYwMzIwMzQyNywtMTc4MDg0MDkyNi
 w3NTE4MTcwNzMsMzAwNjIxODQsLTE3MzQ0MDgyNzcsMTQxNDE0
