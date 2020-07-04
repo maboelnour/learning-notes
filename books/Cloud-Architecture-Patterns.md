@@ -158,12 +158,8 @@ Similarly, the broker will confirm messages once it has taken responsibility for
 ---
 
 **Idempotent processing**
-An idempotent operation is one that can be repeated such that any number of successful
-operations is indistinguishable from a single successful operation.
-Consider a command to create a new user account based on a user-provided email
-address and the message dequeue count is two. Proper processing needs to consider the
-possibility that some (or all) of the processing work has been done previously and so
-needs to act smartly. Exactly how to “act smartly” will vary from application to appli­cation
+An idempotent operation is one that can be repeated such that any number of successful operations is indistinguishable from a single successful operation.
+Consider a command to create a new user account based on a user-provided email address and the message dequeue count is two. Proper processing needs to consider the possibility that some (or all) of the processing work has been done previously and so needs to act smartly. Exactly how to “act smartly” will vary from application to appli­cation
 
 ---
 ### [EXTRA]
@@ -246,11 +242,11 @@ which allows us to partition a single queue into multiple queues and distribute 
 
 ## Chapter 4: Auto-Scaling Pattern
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3Njg0ODkxMTEsMjEwNTM3ODA0OCwtMT
-MyMjg1NzI0LC0xMDk0NDI4Mzc1LDM5MzQxMTM3Miw5NDA3Njk3
-NjQsMTM4NzEyODA4MiwtMTEyNDAyMTMwNiwtMTY2MDAyNTQ5NS
-wyMDk4OTEzNzA4LDE1MTc4Mzk0MTUsNDYzNTIwMTA5LDE2MDMy
-MDM0MjcsLTE3ODA4NDA5MjYsNzUxODE3MDczLDMwMDYyMTg0LC
-0xNzM0NDA4Mjc3LDE0MTQxNDk0NjUsLTIzMTMzMDM5NSwtMTU2
-MjM0NzUyOV19
+eyJoaXN0b3J5IjpbODMwNTY2NzcxLDIxMDUzNzgwNDgsLTEzMj
+I4NTcyNCwtMTA5NDQyODM3NSwzOTM0MTEzNzIsOTQwNzY5NzY0
+LDEzODcxMjgwODIsLTExMjQwMjEzMDYsLTE2NjAwMjU0OTUsMj
+A5ODkxMzcwOCwxNTE3ODM5NDE1LDQ2MzUyMDEwOSwxNjAzMjAz
+NDI3LC0xNzgwODQwOTI2LDc1MTgxNzA3MywzMDA2MjE4NCwtMT
+czNDQwODI3NywxNDE0MTQ5NDY1LC0yMzEzMzAzOTUsLTE1NjIz
+NDc1MjldfQ==
 -->
