@@ -183,8 +183,13 @@ application should still process the message successfully, but not create a new 
 count. This is not a poison message.
 But if the email address field contained a 10,000-character string and this is a scenario
 unanticipated in your application code, it may result in a crash. This is a poison message.
+If our application crashes while processing a message, eventually its invisibility window
+will lapse, and the message will appear on the queue again for another attempt. The need
+for idempotent handling for that scenario is explained in the previous section. When
+dealing with a poison message, the idempotent handling will never terminate.
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyOTA0NDIzMDcsLTE2NjAwMjU0OTUsMj
+eyJoaXN0b3J5IjpbLTExMjQwMjEzMDYsLTE2NjAwMjU0OTUsMj
 A5ODkxMzcwOCwxNTE3ODM5NDE1LDQ2MzUyMDEwOSwxNjAzMjAz
 NDI3LC0xNzgwODQwOTI2LDc1MTgxNzA3MywzMDA2MjE4NCwtMT
 czNDQwODI3NywxNDE0MTQ5NDY1LC0yMzEzMzAzOTUsLTE1NjIz
