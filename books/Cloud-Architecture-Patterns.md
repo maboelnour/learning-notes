@@ -180,7 +180,7 @@ When a message has been returned more times than the limit the message will be d
 A full CQRS treatment would also consider event sourcing and Domain Driven Design (DDD). With event sourcing, as commands result in system state changes, resulting change events are captured and stored individually rather than simply reflecting the change in the master data. For example, an address changed event would hold the new address information rather than just overwrite a single address field in a database. The result is a chronological history that can be replayed to arrive at current state (or any state along the
 way). Using event sourcing may simplify handling idempotent operations. DDD is a technology-agnostic methodology to understand business context. Neither event sourcing nor DDD are required with CQRS, but they are frequently used together.
 
-**Scaling Tiers Independently**
+**Scaling Tiers Independently:**
 The queue length and the time messages spend in the queue are useful environmental signals for auto-scaling. The cloud queue services make these key metrics readily avail­able. A growing queue may indicate the need to increase capacity in the service tier, for example. Note that the signals might indicate that only one tier or one specific processing service needs to be scaled. This concern-independent scaling helps to optimize for cost and efficiency. At very high scale, the queue itself could become a bottleneck requiring multiple queue instances. This does not change the core pattern.
 
 ---
@@ -224,7 +224,7 @@ which allows us to partition a single queue into multiple queues and distribute 
 
 ## Chapter 4: Auto-Scaling Pattern
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjEwMzg3MjczLDIxMDUzNzgwNDgsLTEzMj
+eyJoaXN0b3J5IjpbMjIxMTY0NTYzLDIxMDUzNzgwNDgsLTEzMj
 I4NTcyNCwtMTA5NDQyODM3NSwzOTM0MTEzNzIsOTQwNzY5NzY0
 LDEzODcxMjgwODIsLTExMjQwMjEzMDYsLTE2NjAwMjU0OTUsMj
 A5ODkxMzcwOCwxNTE3ODM5NDE1LDQ2MzUyMDEwOSwxNjAzMjAz
