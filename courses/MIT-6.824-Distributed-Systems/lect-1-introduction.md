@@ -12,7 +12,11 @@ challenges:
 - partial failure
 - performance 
 
-DS 
+DS infrastructure:
+- Storage
+- Communication
+- Computation 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTEzNDc3MDE1NCwtMTg0MTc0MzMzMV19
+eyJoaXN0b3J5IjpbLTE5MDc2NzU0MzAsLTE4NDE3NDMzMzFdfQ
+==
 -->
