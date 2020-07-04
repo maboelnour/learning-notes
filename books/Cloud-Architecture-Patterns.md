@@ -168,20 +168,25 @@ needs to act smartly. Exactly how to “act smartly” will vary from applicatio
 
 Processing of `requeued` messages can be done in `RabbitMQ` with checking for the [`Redelivered`](https://www.rabbitmq.com/consumers.html#message-properties) flag.
 
-Or can be done by keeping a `track` of 
-
-
+Or can be done by keeping a `track` of messages processed, and before processing a message, check if it has been processed before or not!
 
 ---
 
 **Poison messages**
 
 
-
+Some messages cannot be processed successfully due to the contents of the message.
+These are known as poison messages.
+Consider a message containing a command to create a new user account based on a
+user-provided email address. If it turns out that the email address is already in use, your
+application should still process the message successfully, but not create a new user ac­
+count. This is not a poison message.
+But if the email address field contained a 10,000-character string and this is a scenario
+unanticipated in your application code, it may result in a crash. This is a poison message.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjAyMzY2NDY1NSwtMTY2MDAyNTQ5NSwyMD
-k4OTEzNzA4LDE1MTc4Mzk0MTUsNDYzNTIwMTA5LDE2MDMyMDM0
-MjcsLTE3ODA4NDA5MjYsNzUxODE3MDczLDMwMDYyMTg0LC0xNz
-M0NDA4Mjc3LDE0MTQxNDk0NjUsLTIzMTMzMDM5NSwtMTU2MjM0
-NzUyOSwtMTEzOTQ2MjQ2MiwtMTMwMTQxNTMzMl19
+eyJoaXN0b3J5IjpbLTEyOTA0NDIzMDcsLTE2NjAwMjU0OTUsMj
+A5ODkxMzcwOCwxNTE3ODM5NDE1LDQ2MzUyMDEwOSwxNjAzMjAz
+NDI3LC0xNzgwODQwOTI2LDc1MTgxNzA3MywzMDA2MjE4NCwtMT
+czNDQwODI3NywxNDE0MTQ5NDY1LC0yMzEzMzAzOTUsLTE1NjIz
+NDc1MjksLTExMzk0NjI0NjIsLTEzMDE0MTUzMzJdfQ==
 -->
