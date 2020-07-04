@@ -123,7 +123,7 @@ In the simplest (and most common) scenarios, the pattern is trivial: the sender 
 The sender and receiver are said to be **loosely coupled**. They communicate only through messages on a queue. This pattern allows the sender and receiver to operate at different paces or schedules; the receiver does not even need to be running when the sender adds a message to the queue. Neither one knows anything about the implementation of the
 other, though both sides do need to agree on which queue instance they will use, and on the structure of the command message that passes through the queue from sender to receiver.
 
-**Invisibility window and at-least-once processing**
+**Invisibility window and at-least-once processing:**  
 During a message’s invisibility window, there is usually exactly one copy of the message being processed. There are a couple of edge cases where this might not be true. One edge case is when the code processing the message has not finished, but the invisibility window lapses, and another copy of the same message gets dequeued. At this point, there are two active copies of that message being processed. If this happens, it may be due to a bug in
 your code. Instead of exceeding the invisibility window, you should inform the queue that you are still working on this message and increase its invisibility window to allow sufficient time with exclusive access.
 
@@ -139,7 +139,7 @@ Similarly, the broker will confirm messages once it has taken responsibility for
 
 ---
 
-**Idempotent processing**
+**Idempotent processing:**
 An idempotent operation is one that can be repeated such that any number of successful operations is indistinguishable from a single successful operation.
 Consider a command to create a new user account based on a user-provided email address and the message dequeue count is two. Proper processing needs to consider the possibility that some (or all) of the processing work has been done previously and so needs to act smartly. Exactly how to “act smartly” will vary from application to appli­cation
 
@@ -224,11 +224,11 @@ which allows us to partition a single queue into multiple queues and distribute 
 
 ## Chapter 4: Auto-Scaling Pattern
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjIxMTY0NTYzLDIxMDUzNzgwNDgsLTEzMj
-I4NTcyNCwtMTA5NDQyODM3NSwzOTM0MTEzNzIsOTQwNzY5NzY0
-LDEzODcxMjgwODIsLTExMjQwMjEzMDYsLTE2NjAwMjU0OTUsMj
-A5ODkxMzcwOCwxNTE3ODM5NDE1LDQ2MzUyMDEwOSwxNjAzMjAz
-NDI3LC0xNzgwODQwOTI2LDc1MTgxNzA3MywzMDA2MjE4NCwtMT
-czNDQwODI3NywxNDE0MTQ5NDY1LC0yMzEzMzAzOTUsLTE1NjIz
-NDc1MjldfQ==
+eyJoaXN0b3J5IjpbLTE4NjQ5NjAxODUsMjEwNTM3ODA0OCwtMT
+MyMjg1NzI0LC0xMDk0NDI4Mzc1LDM5MzQxMTM3Miw5NDA3Njk3
+NjQsMTM4NzEyODA4MiwtMTEyNDAyMTMwNiwtMTY2MDAyNTQ5NS
+wyMDk4OTEzNzA4LDE1MTc4Mzk0MTUsNDYzNTIwMTA5LDE2MDMy
+MDM0MjcsLTE3ODA4NDA5MjYsNzUxODE3MDczLDMwMDYyMTg0LC
+0xNzM0NDA4Mjc3LDE0MTQxNDk0NjUsLTIzMTMzMDM5NSwtMTU2
+MjM0NzUyOV19
 -->
