@@ -219,9 +219,22 @@ The queue length and the time messages spend in the queue are useful environment
 
 ```mermaid
 graph LR
-A((P1)) --> B[Queue1] -->
+A((P1)) --> B[Queue1] 
+B --> C((C1))
+B --> D((C2))
+B --> E((C3))
+```
+
+
+```mermaid
+graph LR
+A((P1)) --> B[Queue1] 
+A --> B((C1))
+A --> B((C2))
+A --> B((C3))
+```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTkxNzEwMzY1Nyw5NDA3Njk3NjQsMTM4Nz
+eyJoaXN0b3J5IjpbMTUzMDE0MDE3MSw5NDA3Njk3NjQsMTM4Nz
 EyODA4MiwtMTEyNDAyMTMwNiwtMTY2MDAyNTQ5NSwyMDk4OTEz
 NzA4LDE1MTc4Mzk0MTUsNDYzNTIwMTA5LDE2MDMyMDM0MjcsLT
 E3ODA4NDA5MjYsNzUxODE3MDczLDMwMDYyMTg0LC0xNzM0NDA4
