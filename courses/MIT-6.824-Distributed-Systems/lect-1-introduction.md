@@ -31,9 +31,9 @@ Fault Tolerance:
 
 
 Consistency:
-- 
+- put(k,v)` then `get(k)=v` 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4NDc2NjA3MTAsMTA5Nzk3MzU5MSwtMT
-Y0NTc5MzIwMSwtMTkwNzY3NTQzMCwtMTg0MTc0MzMzMV19
+eyJoaXN0b3J5IjpbLTgyOTc1MzY1NywxMDk3OTczNTkxLC0xNj
+Q1NzkzMjAxLC0xOTA3Njc1NDMwLC0xODQxNzQzMzMxXX0=
 -->
