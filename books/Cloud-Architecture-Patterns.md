@@ -153,7 +153,7 @@ Or can be done by keeping a `track` of messages processed, and before processing
 
 ---
 
-**Poison messages**
+**Poison messages:**  
 Some messages cannot be processed successfully due to the contents of the message. These are known as poison messages.
 Consider a message containing a command to create a new user account based on a user-provided email address. If it turns out that the email address is already in use, your application should still process the message successfully, but not create a new user ac­count. This is not a poison message.
 But if the email address field contained a 10,000-character string and this is a scenario unanticipated in your application code, it may result in a crash. This is a poison message.
@@ -224,11 +224,11 @@ which allows us to partition a single queue into multiple queues and distribute 
 
 ## Chapter 4: Auto-Scaling Pattern
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTMzMzY0MDUxMSwyMTA1Mzc4MDQ4LC0xMz
-IyODU3MjQsLTEwOTQ0MjgzNzUsMzkzNDExMzcyLDk0MDc2OTc2
-NCwxMzg3MTI4MDgyLC0xMTI0MDIxMzA2LC0xNjYwMDI1NDk1LD
-IwOTg5MTM3MDgsMTUxNzgzOTQxNSw0NjM1MjAxMDksMTYwMzIw
-MzQyNywtMTc4MDg0MDkyNiw3NTE4MTcwNzMsMzAwNjIxODQsLT
-E3MzQ0MDgyNzcsMTQxNDE0OTQ2NSwtMjMxMzMwMzk1LC0xNTYy
-MzQ3NTI5XX0=
+eyJoaXN0b3J5IjpbNjEwMzg3MjczLDIxMDUzNzgwNDgsLTEzMj
+I4NTcyNCwtMTA5NDQyODM3NSwzOTM0MTEzNzIsOTQwNzY5NzY0
+LDEzODcxMjgwODIsLTExMjQwMjEzMDYsLTE2NjAwMjU0OTUsMj
+A5ODkxMzcwOCwxNTE3ODM5NDE1LDQ2MzUyMDEwOSwxNjAzMjAz
+NDI3LC0xNzgwODQwOTI2LDc1MTgxNzA3MywzMDA2MjE4NCwtMT
+czNDQwODI3NywxNDE0MTQ5NDY1LC0yMzEzMzAzOTUsLTE1NjIz
+NDc1MjldfQ==
 -->
