@@ -23,9 +23,9 @@ Implementation:
 - Concurrency control
 
 Performance:
-- Scalability
+- Scalability  
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTY0OTUxNTY3LC0xOTA3Njc1NDMwLC0xOD
-QxNzQzMzMxXX0=
+eyJoaXN0b3J5IjpbLTE2NDU3OTMyMDEsLTE5MDc2NzU0MzAsLT
+E4NDE3NDMzMzFdfQ==
 -->
