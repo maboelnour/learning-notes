@@ -156,15 +156,25 @@ Similarly, the broker will confirm messages once it has taken responsibility for
 ---
 
 **Idempotent processing**
+An idempotent operation is one that can be repeated such that any number of successful
+operations is indistinguishable from a single successful operation.
+Consider a command to create a new user account based on a user-provided email
+address and the message dequeue count is two. Proper processing needs to consider the
+possibility that some (or all) of the processing work has been done previously and so
+needs to act smartly. Exactly how to “act smartly” will vary from application to appli­cation
+
+---
+### EXTRA (Not from the book):
+
 
 **Poison messages**
 
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA5ODkxMzcwOCwxNTE3ODM5NDE1LDQ2Mz
-UyMDEwOSwxNjAzMjAzNDI3LC0xNzgwODQwOTI2LDc1MTgxNzA3
-MywzMDA2MjE4NCwtMTczNDQwODI3NywxNDE0MTQ5NDY1LC0yMz
-EzMzAzOTUsLTE1NjIzNDc1MjksLTExMzk0NjI0NjIsLTEzMDE0
-MTUzMzJdfQ==
+eyJoaXN0b3J5IjpbLTE2NjAwMjU0OTUsMjA5ODkxMzcwOCwxNT
+E3ODM5NDE1LDQ2MzUyMDEwOSwxNjAzMjAzNDI3LC0xNzgwODQw
+OTI2LDc1MTgxNzA3MywzMDA2MjE4NCwtMTczNDQwODI3NywxND
+E0MTQ5NDY1LC0yMzEzMzAzOTUsLTE1NjIzNDc1MjksLTExMzk0
+NjI0NjIsLTEzMDE0MTUzMzJdfQ==
 -->
