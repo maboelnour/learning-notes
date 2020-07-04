@@ -2,7 +2,8 @@
 
 ![Cloud Architecture Patterns](https://images-na.ssl-images-amazon.com/images/I/413c-GZAMZL._SX372_BO1,204,203,200_.jpg)
 
-Summarize the `Cloud Architecture Patterns` with external resources.
+Summarize the `Cloud Architecture Patterns` with external resources.  
+
 Paragraphs marked with `[EXTRA]`  aren't from the book.
 
 ## Chapter 1: Scalability Primer
@@ -224,11 +225,11 @@ which allows us to partition a single queue into multiple queues and distribute 
 
 ## Chapter 4: Auto-Scaling Pattern
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjE0MjE0NDcxLDIxMDUzNzgwNDgsLTEzMj
-I4NTcyNCwtMTA5NDQyODM3NSwzOTM0MTEzNzIsOTQwNzY5NzY0
-LDEzODcxMjgwODIsLTExMjQwMjEzMDYsLTE2NjAwMjU0OTUsMj
-A5ODkxMzcwOCwxNTE3ODM5NDE1LDQ2MzUyMDEwOSwxNjAzMjAz
-NDI3LC0xNzgwODQwOTI2LDc1MTgxNzA3MywzMDA2MjE4NCwtMT
-czNDQwODI3NywxNDE0MTQ5NDY1LC0yMzEzMzAzOTUsLTE1NjIz
-NDc1MjldfQ==
+eyJoaXN0b3J5IjpbLTgwOTgyOTE1OSwyMTA1Mzc4MDQ4LC0xMz
+IyODU3MjQsLTEwOTQ0MjgzNzUsMzkzNDExMzcyLDk0MDc2OTc2
+NCwxMzg3MTI4MDgyLC0xMTI0MDIxMzA2LC0xNjYwMDI1NDk1LD
+IwOTg5MTM3MDgsMTUxNzgzOTQxNSw0NjM1MjAxMDksMTYwMzIw
+MzQyNywtMTc4MDg0MDkyNiw3NTE4MTcwNzMsMzAwNjIxODQsLT
+E3MzQ0MDgyNzcsMTQxNDE0OTQ2NSwtMjMxMzMwMzk1LC0xNTYy
+MzQ3NTI5XX0=
 -->
