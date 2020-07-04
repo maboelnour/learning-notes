@@ -165,7 +165,7 @@ needs to act smartly. Exactly how to “act smartly” will vary from applicatio
 
 ---
 ### EXTRA (Not from the book): 
-
+**How Idempotent processing done inside `RabbitMQ`?**
 Processing of `requeued` messages can be done in `RabbitMQ` with checking for the [`Redelivered`](https://www.rabbitmq.com/consumers.html#message-properties) flag.
 
 Or can be done by keeping a `track` of messages processed, and before processing a message, check if it has been processed before or not!
@@ -173,8 +173,6 @@ Or can be done by keeping a `track` of messages processed, and before processing
 ---
 
 **Poison messages**
-
-
 Some messages cannot be processed successfully due to the contents of the message.
 These are known as poison messages.
 Consider a message containing a command to create a new user account based on a
@@ -190,19 +188,23 @@ dealing with a poison message, the idempotent handling will never terminate.
 
 ---
 ### EXTRA (Not from the book): 
+**How dealing with poison messages done inside `RabbitMQ`?**
 
-If our application crashes while processing a message, eventually its invisibility window
-will lapse, and the message will appear on the queue again for another attempt. The need
-for idempotent handling for that scenario is explained in the previous section. When
-dealing with a poison message, the idempotent handling will never terminate.
+Quorum queue support handling of [poison messages](https://en.wikipedia.org/wiki/Poison_message), that is, messages that cause a consumer to repeatedly requeue a delivery (possibly due to a consumer failure) such that the message is never consumed completely and [positively acknowledged](https://www.rabbitmq.com/confirms.html) so that it can be marked for deletion by RabbitMQ.
+
+Quorum queues keep track of the number of unsuccessful delivery attempts and expose it in the "x-delivery-count" header that is included with any redelivered message.
+
+It is possible to set a delivery limit for a queue using a [policy](https://www.rabbitmq.com/parameters.html#policies) argument, delivery-limit.
+
+When a message has been returned more times than the limit the message will be dropped or [dead-lettered](https://www.rabbitmq.com/dlx.html) (if a DLX is configured).
 
 ---
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ3NjYyMTExNiwtMTEyNDAyMTMwNiwtMT
-Y2MDAyNTQ5NSwyMDk4OTEzNzA4LDE1MTc4Mzk0MTUsNDYzNTIw
-MTA5LDE2MDMyMDM0MjcsLTE3ODA4NDA5MjYsNzUxODE3MDczLD
-MwMDYyMTg0LC0xNzM0NDA4Mjc3LDE0MTQxNDk0NjUsLTIzMTMz
-MDM5NSwtMTU2MjM0NzUyOSwtMTEzOTQ2MjQ2MiwtMTMwMTQxNT
-MzMl19
+eyJoaXN0b3J5IjpbMTE5NDYxOTg4LC0xMTI0MDIxMzA2LC0xNj
+YwMDI1NDk1LDIwOTg5MTM3MDgsMTUxNzgzOTQxNSw0NjM1MjAx
+MDksMTYwMzIwMzQyNywtMTc4MDg0MDkyNiw3NTE4MTcwNzMsMz
+AwNjIxODQsLTE3MzQ0MDgyNzcsMTQxNDE0OTQ2NSwtMjMxMzMw
+Mzk1LC0xNTYyMzQ3NTI5LC0xMTM5NDYyNDYyLC0xMzAxNDE1Mz
+MyXX0=
 -->
