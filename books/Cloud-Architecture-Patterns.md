@@ -153,12 +153,18 @@ Use of acknowledgements guarantees **at least once** delivery. Without acknowled
 Acknowledgements therefore have semantics. A consuming application should not acknowledge messages until it has done whatever it needs to do with them: recorded them in a data store, forwarded them on, or perform any other operation. Once it does so, the broker is free to mark the delivery for deletion.
 Similarly, the broker will confirm messages once it has taken responsibility for them. The details are covered in the [Acknowledgements and Confirms guide](https://www.rabbitmq.com/confirms.html).
 
+---
+
+**Idempotent processing**
+
+**Poison messages**
 
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTUxNzgzOTQxNSw0NjM1MjAxMDksMTYwMz
-IwMzQyNywtMTc4MDg0MDkyNiw3NTE4MTcwNzMsMzAwNjIxODQs
-LTE3MzQ0MDgyNzcsMTQxNDE0OTQ2NSwtMjMxMzMwMzk1LC0xNT
-YyMzQ3NTI5LC0xMTM5NDYyNDYyLC0xMzAxNDE1MzMyXX0=
+eyJoaXN0b3J5IjpbMjA5ODkxMzcwOCwxNTE3ODM5NDE1LDQ2Mz
+UyMDEwOSwxNjAzMjAzNDI3LC0xNzgwODQwOTI2LDc1MTgxNzA3
+MywzMDA2MjE4NCwtMTczNDQwODI3NywxNDE0MTQ5NDY1LC0yMz
+EzMzAzOTUsLTE1NjIzNDc1MjksLTExMzk0NjI0NjIsLTEzMDE0
+MTUzMzJdfQ==
 -->
