@@ -216,7 +216,7 @@ The queue length and the time messages spend in the queue are useful environment
 ### EXTRA (Not from the book): 
 
 **Different architectures to process messages**
-
+1.
 ```mermaid
 graph LR
 A((P1)) --> B[Queue1] 
@@ -237,10 +237,10 @@ D --> J((C3))
 
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzMTUyOTM2MTcsOTQwNzY5NzY0LDEzOD
-cxMjgwODIsLTExMjQwMjEzMDYsLTE2NjAwMjU0OTUsMjA5ODkx
-MzcwOCwxNTE3ODM5NDE1LDQ2MzUyMDEwOSwxNjAzMjAzNDI3LC
-0xNzgwODQwOTI2LDc1MTgxNzA3MywzMDA2MjE4NCwtMTczNDQw
-ODI3NywxNDE0MTQ5NDY1LC0yMzEzMzAzOTUsLTE1NjIzNDc1Mj
-ksLTExMzk0NjI0NjIsLTEzMDE0MTUzMzJdfQ==
+eyJoaXN0b3J5IjpbMzkzNDExMzcyLDk0MDc2OTc2NCwxMzg3MT
+I4MDgyLC0xMTI0MDIxMzA2LC0xNjYwMDI1NDk1LDIwOTg5MTM3
+MDgsMTUxNzgzOTQxNSw0NjM1MjAxMDksMTYwMzIwMzQyNywtMT
+c4MDg0MDkyNiw3NTE4MTcwNzMsMzAwNjIxODQsLTE3MzQ0MDgy
+NzcsMTQxNDE0OTQ2NSwtMjMxMzMwMzk1LC0xNTYyMzQ3NTI5LC
+0xMTM5NDYyNDYyLC0xMzAxNDE1MzMyXX0=
 -->
