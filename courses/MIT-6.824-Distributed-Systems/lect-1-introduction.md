@@ -5,6 +5,10 @@ reasons fofr distributed computing
 - physical
 - security / isolation
 
+hard of DS is a lot of unexpected failure patterns.
+challengins
+- concurrency
+- partial fai
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0NTE3NTc2MzhdfQ==
+eyJoaXN0b3J5IjpbLTEwNjUzNTcyODZdfQ==
 -->
