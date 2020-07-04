@@ -16,7 +16,12 @@ DS infrastructure (Abstractions):
 - Storage
 - Communication
 - Computation.
+
+Implementation:
+- RPC
+- Threads
+- Concurrency control
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg1NzIyOTEyNiwtMTkwNzY3NTQzMCwtMT
-g0MTc0MzMzMV19
+eyJoaXN0b3J5IjpbMTEyMTE2MzksLTE5MDc2NzU0MzAsLTE4ND
+E3NDMzMzFdfQ==
 -->
