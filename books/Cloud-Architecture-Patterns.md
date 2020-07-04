@@ -191,8 +191,7 @@ business decision. If it is desirable to have a human review the poison messages
 sider how to improve handling, then one approach is to use what is known as a dead
 letter queue, a place for storing messages that cannot be processed normally.
 
-~~~
-~~~
+---
 ### EXTRA (Not from the book): 
 **How dealing with poison messages done inside `RabbitMQ`?**
 
@@ -204,8 +203,7 @@ It is possible to set a delivery limit for a queue using a [policy](https://www.
 
 When a message has been returned more times than the limit the message will be dropped or [dead-lettered](https://www.rabbitmq.com/dlx.html) (if a DLX is configured).
 
-~~~
-~~~
+---
 
 
 A full CQRS treatment would also consider event sourcing and Domain Driven Design (DDD). With event sourcing, as commands result in system state changes, resulting change events are captured and stored individually rather than simply reflecting the change in the master data. For example, an address changed event would hold the new address information rather than just overwrite a single address field in a database. The result is a chronological history that can be replayed to arrive at current state (or any state along the
@@ -216,7 +214,7 @@ The queue length and the time messages spend in the queue are useful environment
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIzMTMzNDgyMSwxMzg3MTI4MDgyLC0xMT
+eyJoaXN0b3J5IjpbMjE0MjAzNjMyMywxMzg3MTI4MDgyLC0xMT
 I0MDIxMzA2LC0xNjYwMDI1NDk1LDIwOTg5MTM3MDgsMTUxNzgz
 OTQxNSw0NjM1MjAxMDksMTYwMzIwMzQyNywtMTc4MDg0MDkyNi
 w3NTE4MTcwNzMsMzAwNjIxODQsLTE3MzQ0MDgyNzcsMTQxNDE0
