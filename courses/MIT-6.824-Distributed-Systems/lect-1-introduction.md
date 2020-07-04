@@ -32,9 +32,12 @@ Fault Tolerance:
 
 Consistency:
 - `put(k,v)` then `get(k)=v` a cross all replicas.
-- S
+- Strong Consistency requires a lot of strong communication.
+- Lowering communication cost by putting the replicas close to each other collide with `fault tolerant` system.
+
+
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwNzkwNDYzMCwxMDk3OTczNTkxLC0xNj
+eyJoaXN0b3J5IjpbLTIzNzIzMjgwNSwxMDk3OTczNTkxLC0xNj
 Q1NzkzMjAxLC0xOTA3Njc1NDMwLC0xODQxNzQzMzMxXX0=
 -->
