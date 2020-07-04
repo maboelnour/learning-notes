@@ -216,7 +216,8 @@ The queue length and the time messages spend in the queue are useful environment
 ### EXTRA (Not from the book): 
 
 **Different architectures to process messages**
-1. Competing Consumers pattern:
+
+**1. Competing Consumers pattern:**
 ```mermaid
 graph LR
 A((P1)) --> B[Queue1] 
@@ -235,7 +236,7 @@ This pattern might not be useful when:
 -   Tasks must be performed synchronously, and the application logic must wait for a task to complete before continuing.
 -   Tasks must be performed in a specific sequence.
 
-2. Multi Queue
+**2. Multi Queues:**
 ```mermaid
 graph LR
 A((P1)) --> B[Queue1] 
@@ -247,7 +248,7 @@ D --> J((C3))
 
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM2ODQ3OTI0MywtMTA5NDQyODM3NSwzOT
+eyJoaXN0b3J5IjpbMTMyOTY1MDE5OCwtMTA5NDQyODM3NSwzOT
 M0MTEzNzIsOTQwNzY5NzY0LDEzODcxMjgwODIsLTExMjQwMjEz
 MDYsLTE2NjAwMjU0OTUsMjA5ODkxMzcwOCwxNTE3ODM5NDE1LD
 Q2MzUyMDEwOSwxNjAzMjAzNDI3LC0xNzgwODQwOTI2LDc1MTgx
