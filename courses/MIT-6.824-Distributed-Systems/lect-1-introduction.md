@@ -27,8 +27,9 @@ Performance:
 
 Fault Tolerance: 
 - Availability: under a predefined set of failures, the service should u[ and running.
+- Recoverability.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3NzQzNjM2MiwtMTY0NTc5MzIwMSwtMT
+eyJoaXN0b3J5IjpbMTA5Nzk3MzU5MSwtMTY0NTc5MzIwMSwtMT
 kwNzY3NTQzMCwtMTg0MTc0MzMzMV19
 -->
