@@ -245,10 +245,11 @@ A --> D[Queue3]
 B --> E((C1))
 C --> F((C2))
 D --> J((C3))
-
 ```
+
+We can batch the dependant tasks in the required order in a single queue
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTMyOTY1MDE5OCwtMTA5NDQyODM3NSwzOT
+eyJoaXN0b3J5IjpbLTEzMjI4NTcyNCwtMTA5NDQyODM3NSwzOT
 M0MTEzNzIsOTQwNzY5NzY0LDEzODcxMjgwODIsLTExMjQwMjEz
 MDYsLTE2NjAwMjU0OTUsMjA5ODkxMzcwOCwxNTE3ODM5NDE1LD
 Q2MzUyMDEwOSwxNjAzMjAzNDI3LC0xNzgwODQwOTI2LDc1MTgx
