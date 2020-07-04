@@ -212,12 +212,15 @@ way). Using event sourcing may simplify handling idempotent operations. DDD is a
 **Scaling Tiers Independently**
 The queue length and the time messages spend in the queue are useful environmental signals for auto-scaling. The cloud queue services make these key metrics readily avail­able. A growing queue may indicate the need to increase capacity in the service tier, for example. Note that the signals might indicate that only one tier or one specific processing service needs to be scaled. This concern-independent scaling helps to optimize for cost and efficiency. At very high scale, the queue itself could become a bottleneck requiring multiple queue instances. This does not change the core pattern.
 
+---
+### EXTRA (Not from the book): 
 
+**Different architectures to process messages**
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjE0MjAzNjMyMywxMzg3MTI4MDgyLC0xMT
-I0MDIxMzA2LC0xNjYwMDI1NDk1LDIwOTg5MTM3MDgsMTUxNzgz
-OTQxNSw0NjM1MjAxMDksMTYwMzIwMzQyNywtMTc4MDg0MDkyNi
-w3NTE4MTcwNzMsMzAwNjIxODQsLTE3MzQ0MDgyNzcsMTQxNDE0
-OTQ2NSwtMjMxMzMwMzk1LC0xNTYyMzQ3NTI5LC0xMTM5NDYyND
-YyLC0xMzAxNDE1MzMyXX0=
+eyJoaXN0b3J5IjpbOTQwNzY5NzY0LDEzODcxMjgwODIsLTExMj
+QwMjEzMDYsLTE2NjAwMjU0OTUsMjA5ODkxMzcwOCwxNTE3ODM5
+NDE1LDQ2MzUyMDEwOSwxNjAzMjAzNDI3LC0xNzgwODQwOTI2LD
+c1MTgxNzA3MywzMDA2MjE4NCwtMTczNDQwODI3NywxNDE0MTQ5
+NDY1LC0yMzEzMzAzOTUsLTE1NjIzNDc1MjksLTExMzk0NjI0Nj
+IsLTEzMDE0MTUzMzJdfQ==
 -->
