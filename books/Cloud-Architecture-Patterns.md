@@ -205,10 +205,19 @@ When a message has been returned more times than the limit the message will be d
 
 ---
 
-
-
+```
+A full CQRS treatment would also consider event sourcing and Domain Driven Design
+(DDD). With event sourcing, as commands result in system state changes, resulting change
+events are captured and stored individually rather than simply reflecting the change in the
+master data. For example, an address changed event would hold the new address infor­
+mation rather than just overwrite a single address field in a database. The result is a
+chronological history that can be replayed to arrive at current state (or any state along the
+way). Using event sourcing may simplify handling idempotent operations. DDD is a
+technology-agnostic methodology to understand business context. Neither event sourcing
+nor DDD are required with CQRS, but they are frequently used together.
+```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTAwMTc4NjAxMCwtMTEyNDAyMTMwNiwtMT
+eyJoaXN0b3J5IjpbMjE0NjU5MzQ5MCwtMTEyNDAyMTMwNiwtMT
 Y2MDAyNTQ5NSwyMDk4OTEzNzA4LDE1MTc4Mzk0MTUsNDYzNTIw
 MTA5LDE2MDMyMDM0MjcsLTE3ODA4NDA5MjYsNzUxODE3MDczLD
 MwMDYyMTg0LC0xNzM0NDA4Mjc3LDE0MTQxNDk0NjUsLTIzMTMz
