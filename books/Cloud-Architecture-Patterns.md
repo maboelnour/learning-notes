@@ -166,7 +166,8 @@ possibility that some (or all) of the processing work has been done previously a
 needs to act smartly. Exactly how to “act smartly” will vary from application to appli­cation
 
 ---
-### EXTRA (Not from the book): 
+### [EXTRA]
+
 **How Idempotent processing done inside `RabbitMQ`?**
 Processing of `requeued` messages can be done in `RabbitMQ` with checking for the [`Redelivered`](https://www.rabbitmq.com/consumers.html#message-properties) flag.
 
@@ -175,26 +176,16 @@ Or can be done by keeping a `track` of messages processed, and before processing
 ---
 
 **Poison messages**
-Some messages cannot be processed successfully due to the contents of the message.
-These are known as poison messages.
-Consider a message containing a command to create a new user account based on a
-user-provided email address. If it turns out that the email address is already in use, your
-application should still process the message successfully, but not create a new user ac­
-count. This is not a poison message.
-But if the email address field contained a 10,000-character string and this is a scenario
-unanticipated in your application code, it may result in a crash. This is a poison message.
-If our application crashes while processing a message, eventually its invisibility window
-will lapse, and the message will appear on the queue again for another attempt. The need
-for idempotent handling for that scenario is explained in the previous section. When
-dealing with a poison message, the idempotent handling will never terminate.
+Some messages cannot be processed successfully due to the contents of the message. These are known as poison messages.
+Consider a message containing a command to create a new user account based on a user-provided email address. If it turns out that the email address is already in use, your application should still process the message successfully, but not create a new user ac­count. This is not a poison message.
+But if the email address field contained a 10,000-character string and this is a scenario unanticipated in your application code, it may result in a crash. This is a poison message.
+If our application crashes while processing a message, eventually its invisibility window will lapse, and the message will appear on the queue again for another attempt. The need for idempotent handling for that scenario is explained in the previous section. When dealing with a poison message, the idempotent handling will never terminate.
 
-Once a poison message has been identified, deciding how to deal with it is another
-business decision. If it is desirable to have a human review the poison messages to con­
-sider how to improve handling, then one approach is to use what is known as a dead
-letter queue, a place for storing messages that cannot be processed normally.
+Once a poison message has been identified, deciding how to deal with it is another business decision. If it is desirable to have a human review the poison messages to con­sider how to improve handling, then one approach is to use what is known as a `dead letter queue`, a place for storing messages that cannot be processed normally.
 
 ---
-### EXTRA (Not from the book): 
+### [EXTRA]
+
 **How dealing with poison messages done inside `RabbitMQ`?**
 
 [Quorum queue](https://www.rabbitmq.com/quorum-queues.html) support handling of [poison messages](https://en.wikipedia.org/wiki/Poison_message), that is, messages that cause a consumer to repeatedly requeue a delivery (possibly due to a consumer failure) such that the message is never consumed completely and [positively acknowledged](https://www.rabbitmq.com/confirms.html) so that it can be marked for deletion by RabbitMQ.
@@ -215,7 +206,8 @@ way). Using event sourcing may simplify handling idempotent operations. DDD is a
 The queue length and the time messages spend in the queue are useful environmental signals for auto-scaling. The cloud queue services make these key metrics readily avail­able. A growing queue may indicate the need to increase capacity in the service tier, for example. Note that the signals might indicate that only one tier or one specific processing service needs to be scaled. This concern-independent scaling helps to optimize for cost and efficiency. At very high scale, the queue itself could become a bottleneck requiring multiple queue instances. This does not change the core pattern.
 
 ---
-### EXTRA (Not from the book): 
+### [EXTRA]
+
 
 **Different architectures to process messages**
 
@@ -254,11 +246,11 @@ which allows us to partition a single queue into multiple queues and distribute 
 
 ## Chapter 4: Auto-Scaling Pattern
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTIzMzc0MTIyMywyMTA1Mzc4MDQ4LC0xMz
-IyODU3MjQsLTEwOTQ0MjgzNzUsMzkzNDExMzcyLDk0MDc2OTc2
-NCwxMzg3MTI4MDgyLC0xMTI0MDIxMzA2LC0xNjYwMDI1NDk1LD
-IwOTg5MTM3MDgsMTUxNzgzOTQxNSw0NjM1MjAxMDksMTYwMzIw
-MzQyNywtMTc4MDg0MDkyNiw3NTE4MTcwNzMsMzAwNjIxODQsLT
-E3MzQ0MDgyNzcsMTQxNDE0OTQ2NSwtMjMxMzMwMzk1LC0xNTYy
-MzQ3NTI5XX0=
+eyJoaXN0b3J5IjpbLTE3Njg0ODkxMTEsMjEwNTM3ODA0OCwtMT
+MyMjg1NzI0LC0xMDk0NDI4Mzc1LDM5MzQxMTM3Miw5NDA3Njk3
+NjQsMTM4NzEyODA4MiwtMTEyNDAyMTMwNiwtMTY2MDAyNTQ5NS
+wyMDk4OTEzNzA4LDE1MTc4Mzk0MTUsNDYzNTIwMTA5LDE2MDMy
+MDM0MjcsLTE3ODA4NDA5MjYsNzUxODE3MDczLDMwMDYyMTg0LC
+0xNzM0NDA4Mjc3LDE0MTQxNDk0NjUsLTIzMTMzMDM5NSwtMTU2
+MjM0NzUyOV19
 -->
