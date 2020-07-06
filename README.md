@@ -7,6 +7,7 @@ Learning notes and summaries  of any CS-related learning material i love to reme
 sequenceDiagram
 UAT ->> MRN1 : a) Intaial branching
 MRN1 ->> MRN1.1: b) Sub-task brancing
+MRN1.1 ->> MRN1: c) merging back to feature
 MRN1.1 ->> Staging: c) staging deployment
 
 
@@ -14,5 +15,5 @@ MRN1.1 ->> Staging: c) staging deployment
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA5NzIyNTA2NF19
+eyJoaXN0b3J5IjpbMTE3OTIyOTkyMV19
 -->
