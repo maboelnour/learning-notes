@@ -150,8 +150,8 @@ MRN1 ->> MRN1.1: 2) Sub-task brancing
 MRN1.1 ->> MRN1: 3) merging back to feature
 MRN1 ->> Staging: 4) staging deployment
 MRN1 ->> UAT: 5) uat deployment
-MRN1 ->> production: 6) production deployment
+MRN1 ->> Production: 6) production deployment
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk5MjMwMDc0NV19
+eyJoaXN0b3J5IjpbMTAyNDI0NTA3OV19
 -->
