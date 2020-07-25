@@ -1,4 +1,6 @@
-reasons for distributed computing
+## Lec1:
+
+Reasons for distributed computing
 
 - parallelism
 - fault tolerance
@@ -41,7 +43,7 @@ Consistency:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1NjQwMTU1ODAsMzAwMjAxNDIsLTIzNz
+eyJoaXN0b3J5IjpbLTE3MzM2NzgxNjMsMzAwMjAxNDIsLTIzNz
 IzMjgwNSwxMDk3OTczNTkxLC0xNjQ1NzkzMjAxLC0xOTA3Njc1
 NDMwLC0xODQxNzQzMzMxXX0=
 -->
