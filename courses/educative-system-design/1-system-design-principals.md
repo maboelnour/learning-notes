@@ -1,7 +1,6 @@
  ### 1.  Requirements clarifications
-dsd
+It is always a good idea to ask questions about the exact scope of the problem we are solving. Design questions are mostly open-ended, and they don’t have ONE correct answer, that’s why clarifying ambiguities early in the interview becomes critical. Candidates who spend enough time to define the end goals of the system always have a better chance to be successful in the interview
 
- 
  ---
 ### 2. Back-of-the-envelope estimation
 - What scale is expected from the system?
@@ -38,5 +37,6 @@ Try to discuss as many bottlenecks as possible and different approaches to mitig
 In short, preparation and being organized during the interview are the keys to be successful in system design interviews. The steps mentioned above should guide you to remain on track and cover all the different aspects while designing a system.	
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE2NjU2NTg1NSwtMTY1MDc2ODIyMV19
+eyJoaXN0b3J5IjpbLTE3MjIxMzgyODMsLTE2NTA3NjgyMjFdfQ
+==
 -->
