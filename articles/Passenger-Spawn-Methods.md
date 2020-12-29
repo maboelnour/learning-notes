@@ -32,7 +32,20 @@ Creating a process like this is very fast, about 10 times faster than loading th
 Because application processes are created by forking from a preloader process, it will share all file descriptors that are opened by the preloader process. If different application processes write to such a file descriptor at the same time, then their write calls will be interleaved, which may potentially cause problems.
 
 The problem commonly involves socket connections that are unintentionally being shared. You can fix it by closing and reestablishing the connection when Passenger is creating a new application process. So you could insert the following code in your `config.ru`:
+```
+if defined?(PhusionPassenger)
+  PhusionPassenger.on_event(:starting_worker_process) do |forked|
+    if forked
+      # We're in smart spawning mode.
+      ... code to reestablish socket connections here ...
+    else
+      # We're in direct spawning mode. We don't need to do anything.
+    end
+  end
+end
+```
+#### Example 1: Memcached connection sharing (harmful)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzAxODA2MTMsMTMxNTgxNzMwMSwtMTg5Mj
-I2MjQ3LC01MTY5NzE5MTJdfQ==
+eyJoaXN0b3J5IjpbMTg1MDMyNDgyNSwxMzE1ODE3MzAxLC0xOD
+kyMjYyNDcsLTUxNjk3MTkxMl19
 -->
