@@ -76,7 +76,53 @@ Now supposed that your site gets a sudden large surge of traffic, and Passenger 
  | App process 2      |-----/
  +--------------------+
 ```
+As you can see, App process 1 and App process 2 have the same Memcached connection.
+
+Suppose that users Joe and Jane visit your website at the same time. Joe's request is handled by App process 1, and Jane's request is handled by App process 2. Both application processes want to fetch something from Memcached. Suppose that in order to do that, both handlers need to send a `FETCH` command to Memcached.
+
+But suppose that, after App process 1 having only sent `FE`, a context switch occurs, and App process 2 starts sending a `FETCH` command to Memcached as well. If App process 2 succeeds in sending only one byte, `F`, then Memcached will receive a command which begins with `FEF`, a command that it does not recognize. In other words: the data from both handlers get interleaved. And thus Memcached is forced to handle this as an error.
+
+This problem can be solved by reestablishing the connection to Memcached after forking:
+```
+ +--------------------+
+ | Preloader          |------+----[Memcached server]
+ +--------------------+      |                   |
+                             |                   |
+ +--------------------+      |                   |
+ | App process 1      |-----/|                   |
+ +--------------------+      |                   |  <--- created this
+                             X                   |       new
+                                                 |       connection
+                             X <-- closed this   |
+ +--------------------+      |     old           |
+ | App process 2      |-----/      connection    |
+ +--------------------+                          |
+           |                                     |
+           +-------------------------------------+
+```
+App process 2 now has its own, separate communication channel with Memcached. The code in `config.ru` looks like this:
+
+```
+if defined?(PhusionPassenger)
+  PhusionPassenger.on_event(:starting_worker_process) do |forked|
+    if forked
+      # We're in smart spawning mode.
+      reestablish_connection_to_memcached
+    else
+      # We're in direct spawning mode. We don't need to do anything.
+    end
+  end
+end
+```
+
+---
+
+### Am I responsible for reestablishing database connections after the preloader has forked a child process?
+
+It depends. Passenger automatically reestablishes the ActiveRecord primary database connection. The vast majority of Rails only uses ActiveRecord (not any other database libraries), and only with a single database connection.
+
+If your application uses any database libraries besides ActiveRecord, OR you use ActiveRecord with more than one database connection, then you are responsible for reestablishing all connections after forking. Use the [smart spawning hooks](https://www.phusionpassenger.com/library/indepth/ruby/spawn_methods/#smart-spawning-hooks).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxMDY5NDIzNzMsMTMxNTgxNzMwMSwtMT
-g5MjI2MjQ3LC01MTY5NzE5MTJdfQ==
+eyJoaXN0b3J5IjpbLTE4ODcwMTEzNjAsLTIxMDY5NDIzNzMsMT
+MxNTgxNzMwMSwtMTg5MjI2MjQ3LC01MTY5NzE5MTJdfQ==
 -->
