@@ -16,6 +16,9 @@ Passenger could create a new Ruby process, which will then load the web framewor
 This is the most straightforward way to spawn processes, and each process contains a full copy of the application code and the web framework in memory.
 
 While this works well, it's not as efficient as it could be because each process has its own **private** copy of the application code as well as the web framework. This wastes memory as well as startup time.
+
+![enter image description here](https://www.phusionpassenger.com/library/indepth/spawn_methods/direct_spawning-7fd82545.png)
+## [](https://www.phusionpassenger.com/library/indepth/ruby/spawn_methods/#the-smart-spawning-method)The smart spawning method
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU4NzM5MzcyNSwtNTE2OTcxOTEyXX0=
+eyJoaXN0b3J5IjpbMjA3NTU3Mjk0MCwtNTE2OTcxOTEyXX0=
 -->
