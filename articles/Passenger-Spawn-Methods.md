@@ -45,7 +45,22 @@ if defined?(PhusionPassenger)
 end
 ```
 #### Example 1: Memcached connection sharing (harmful)
+```
+ +--------------------+
+ | Preloader          |-----------[Memcached server]
+ +--------------------+
+```
+Suppose that Passenger then proceeds with creating a new application process, which is to process incoming HTTP requests. The result will look like this:
+```
+ +--------------------+
+ | Preloader          |------+----[Memcached server]
+ +--------------------+      |
+                             |
+ +--------------------+      |
+ | App process 1      |-----/
+ +--------------------+
+```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg1MDMyNDgyNSwxMzE1ODE3MzAxLC0xOD
-kyMjYyNDcsLTUxNjk3MTkxMl19
+eyJoaXN0b3J5IjpbMjc2NjQ3NTM4LDEzMTU4MTczMDEsLTE4OT
+IyNjI0NywtNTE2OTcxOTEyXX0=
 -->
