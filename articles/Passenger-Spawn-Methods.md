@@ -20,7 +20,8 @@ While this works well, it's not as efficient as it could be because each process
 ![enter image description here](https://www.phusionpassenger.com/library/indepth/spawn_methods/direct_spawning-7fd82545.png)
 ### The smart spawning method
 
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTc1Nzg4Nzc1LC0xODkyMjYyNDcsLTUxNj
-k3MTkxMl19
+eyJoaXN0b3J5IjpbMTMxNTgxNzMwMSwtMTg5MjI2MjQ3LC01MT
+Y5NzE5MTJdfQ==
 -->
