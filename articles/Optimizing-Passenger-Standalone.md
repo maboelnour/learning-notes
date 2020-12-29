@@ -34,14 +34,14 @@ The optimal value depends on the hardware and the environment. This section will
     
     Having more processes than CPUs may decrease total throughput a little thanks to context switching overhead, but the difference is not big because OSes are good at context switching these days.
     
-    On the other hand, if your CPUs are not used constantly, e.g. because they’re often blocked on I/O, *then the above does not apply and increasing the number of processes/threads does increase concurrency and throughput, at least until the CPUs are saturated*.
+    On the other hand, if your CPUs are not used constantly, e.g. because they’re often blocked on I/O, *then the above does not apply and increasing the number of processes/threads does **increase concurrency and throughput**, at least until the CPUs are saturated*.
     
--   **Blocking I/O**. This covers all blocking I/O, including hard disk access latencies, database call latencies, web API calls, etc. Handling input from the client and output to the client does not count as blocking I/O, because Passenger has buffering layers that relief the application from worrying about this.
+-   **Blocking I/O**. This covers all blocking I/O, including *hard disk access* *latencies*, *database call latencies*, *web API calls*, etc. Handling input from the client and output to the client does not count as blocking I/O, because Passenger has buffering layers that relief the application from worrying about this.
     
     The more blocking I/O calls your application process/thread makes, the more time it spends on waiting for external components. While it’s waiting it does not use the CPU, so that’s when another process/thread should get the chance to use the CPU. If no other process/thread needs CPU right now (e.g. all processes/threads are waiting for I/O) then CPU time is essentially wasted. Increasing the number processes or threads decreases the chance of CPU time being wasted. It also increases concurrency, so that clients do not have to wait for a previous I/O call to be completed before being served.
     
 
 The formulas in this section assume that your machine is dedicated to Passenger. If your machine also hosts other software (e.g. a database) then you'll need to tweak the formulas a little bit.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTcwODg4NzQ3OCwxNTA0MzQ4NTE3XX0=
+eyJoaXN0b3J5IjpbLTExODE1MzQxNCwxNTA0MzQ4NTE3XX0=
 -->
