@@ -60,7 +60,23 @@ Suppose that Passenger then proceeds with creating a new application process, wh
  | App process 1      |-----/
  +--------------------+
 ```
+Since a `fork()` makes a (virtual) complete copy of a process, all its file descriptors will be copied as well. What we see here is that Preloader and App process 1 both share the same connection to Memcached.
+
+Now supposed that your site gets a sudden large surge of traffic, and Passenger decides to spawn another process. It does so by forking Preloader. The result is now as follows:
+```
+ +--------------------+
+ | Preloader          |------+----[Memcached server]
+ +--------------------+      |
+                             |
+ +--------------------+      |
+ | App process 1      |-----/|
+ +--------------------+      |
+                             |
+ +--------------------+      |
+ | App process 2      |-----/
+ +--------------------+
+```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjc2NjQ3NTM4LDEzMTU4MTczMDEsLTE4OT
-IyNjI0NywtNTE2OTcxOTEyXX0=
+eyJoaXN0b3J5IjpbLTIxMDY5NDIzNzMsMTMxNTgxNzMwMSwtMT
+g5MjI2MjQ3LC01MTY5NzE5MTJdfQ==
 -->
