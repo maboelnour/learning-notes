@@ -1,5 +1,6 @@
 # Optimizing Passenger Standalone
- This notes summarize [Optimizing Passenger Standalone](https://www.phusionpassenger.com/library/config/standalone/optimization/) from Passenger Docs. 
+
+These notes summarize [Optimizing Passenger Standalone](https://www.phusionpassenger.com/library/config/standalone/optimization/) from Passenger Docs. 
 
 ---
 
@@ -11,5 +12,5 @@ There are two aspects with regard to optimizing Passenger's server performance.
     
 -   The second aspect is _using performance-enhancing features_. This requires small application-level changes.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzNTk2MTI4ODhdfQ==
+eyJoaXN0b3J5IjpbLTE0ODA4MjEwOTNdfQ==
 -->
