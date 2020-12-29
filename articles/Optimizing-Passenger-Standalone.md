@@ -110,11 +110,13 @@ scenarios.desired_app_processes = min(max_app_processes, NUMBER_OF_CPUS)
 scenarios.desired_app_threads_per_process = min(max_app_threads_per_process, 2 * NUMBER_OF_CPUS)
 ```
 -   If `desired_app_processes` is 1, then you should also add `--spawn-method=direct`. By using direct spawning instead of smart spawning, Passenger will not keep a Preloader process around, saving you some memory (learn more at [Spawn methods](https://www.phusionpassenger.com/library/indepth/spawn_methods/)). This is because a Preloader process is useless when there's only 1 application process.
+---
+
     
 
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTExMjIwMTg4NSwxMzU3MTA1MzgwLDEwMD
+eyJoaXN0b3J5IjpbMTY4NTUxNjU3MCwxMzU3MTA1MzgwLDEwMD
 YzNjEzMTQsMTUwNDM0ODUxN119
 -->
