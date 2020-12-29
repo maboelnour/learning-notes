@@ -19,9 +19,16 @@ While this works well, it's not as efficient as it could be because each process
 
 ![enter image description here](https://www.phusionpassenger.com/library/indepth/spawn_methods/direct_spawning-7fd82545.png)
 ### The smart spawning method
+It is possible to make the different processes share the memory occupied by application and web framework code. This is achieved by utilizing so-called `copy-on-write` semantics of the virtual memory system on modern operating systems. As a side effect, the startup time is also reduced. This technique is exploited by Passenger's `smart` spawn method.
 
+When the `smart` spawn method is being used, Passenger will first create a so-called 'preloader' process. This process loads the entire application along with the web framework, by loading the file `config.ru`. The preloader process doesn't participate in request handling.
 
+Then, whenever Passenger needs a new application process, it will instruct the preloader to create one. The preloader then spawns a child process (with the `fork()` system call). The operating system guarantees that this child process is an exact virtual copy of itself. This child process therefore already has the application code and the web framework code in memory.
+
+Creating a process like this is very fast, about 10 times faster than loading the Ruby application + framework from scratch. On top of that, the OS also applies an optimization called "copy-on-write". This means that all memory that the child process hasn't modified, is shared with the parent process.
+
+![enter image description here](https://www.phusionpassenger.com/library/indepth/spawn_methods/smart_spawning-45966b9d.png)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTMxNTgxNzMwMSwtMTg5MjI2MjQ3LC01MT
-Y5NzE5MTJdfQ==
+eyJoaXN0b3J5IjpbLTEzMDE4MTMxNDYsMTMxNTgxNzMwMSwtMT
+g5MjI2MjQ3LC01MTY5NzE5MTJdfQ==
 -->
