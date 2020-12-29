@@ -40,8 +40,11 @@ The optimal value depends on the hardware and the environment. This section will
     
     The more blocking I/O calls your application process/thread makes, the more time it spends on waiting for external components. While it’s waiting it does not use the CPU, so that’s when another process/thread should get the chance to use the CPU. If no other process/thread needs CPU right now (e.g. all processes/threads are waiting for I/O) then CPU time is *essentially wasted*. Increasing the number processes or threads decreases the chance of CPU time being wasted. It also increases concurrency, so that clients do not have to wait for a previous I/O call to be completed before being served.
     
-
 The formulas in this section assume that your machine is dedicated to Passenger. If your machine also hosts other software (e.g. a database) then you'll need to tweak the formulas a little bit.
+
+### Tuning the application process and thread count:
+
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTY5MDEzODgwLDE1MDQzNDg1MTddfQ==
+eyJoaXN0b3J5IjpbLTQwMTE1MTQ4NCwxNTA0MzQ4NTE3XX0=
 -->
