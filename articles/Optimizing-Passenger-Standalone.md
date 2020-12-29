@@ -44,17 +44,17 @@ The formulas in this section assume that your machine is dedicated to Passenger.
 
 ### Tuning the application process and thread count:
 
-##### Step 1: determining the application's memory usage:
+#### Step 1: determining the application's memory usage:
 You should first figure out how much memory your application typically needs. Every application has different memory usage patterns, so the typical memory usage is best determined by observation.
 
 Run your app for a while, then run `passenger-status` at different points in time to examine memory usage. 
 
-##### Step 2: determine the system's limits:
+#### Step 2: determine the system's limits:
 First, let's define the maximum number of (single-threaded) processes, or the total number of threads, that you can comfortably have given the amount of RAM you have. This is a reasonable upper limit that you can reach without degrading system performance. This number is not the final optimal number, but is merely used for further caculations in later steps.
 
 There are two formulas that we can use, depending on what kind of concurrency model your application is using in production.
 
-*Purely single-threaded multi-process formula*
+##### Purely single-threaded multi-process formula
 
 If you didn't explicitly configure multithreading, then you are using using this concurrency model.
 The formula is then as follows:
@@ -64,12 +64,33 @@ max_app_processes = (TOTAL_RAM * 0.75) / RAM_PER_PROCESS
 
 It is derived as follows:
 
--   `(TOTAL_RAM * 0.75)`: We can assume that there must be at least 25% of free RAM that the operating system can use for other things. The result of this calculation is the RAM that is freely available for applications. If your system runs a lot of services and thus has less memory available for Passenger and its apps, then you should lower `0.75` to some constant that you think is appropriate.
+-   `(TOTAL_RAM * 0.75)`: We can assume that there must be at least 25% of free RAM that the operating system can use for other things.
 -   `/ RAM_PER_PROCESS`: Each process consumes a roughly constant amount of RAM, so the maximum number of processes is a single devision between the aforementioned calculation and this constant.
 
+##### Multithreaded formula
+
+The formula for multithreaded concurrency is as follows:
+
+```
+max_app_threads_per_process =
+  ((TOTAL_RAM * 0.75) - (CHOSEN_NUMBER_OF_PROCESSES * RAM_PER_PROCESS * 0.9)) /
+  (RAM_PER_PROCESS / 10) /
+  CHOSEN_NUMBER_OF_PROCESSES
+
+```
+
+Here, `CHOSEN_NUMBER_OF_PROCESSES` is the number of application processes you want to use. In case of Ruby, Python, Node.js and Meteor, this should be equal to `NUMBER_OF_CPUS`. This is because all these languages can only utilize a single CPU core per process. If you're using a language runtime that does not have a Global Interpreter Lock, e.g. JRuby or Rubinius, then `CHOSEN_NUMBER_OF_PROCESSES` can be 1.
+
+The formula is derived as follows:
+
+-   `(TOTAL_RAM * 0.75)`: The same as explained earlier.
+-   `(CHOSEN_NUMBER_OF_PROCESSES * RAM_PER_PROCESS * 0.9)`: This calculates the amount of memory that all the processes together would consume, assuming they're not running any threads. When this is deducted from `TOTAL_RAM * 0.75`, we end up with the amount of RAM available to application threads.
+-   `/ (RAM_PER_PROCESS / 10)`: We estimate that a thread consumes ~10% of the amount of memory a process would, so we divide the amount of RAM available to threads with this number. What we get is the number of threads that the system can handle.
+
+On 32-bit systems, `max_app_threads_per_process` should not be higher than about 200. Assuming an 8 MB stack size per thread, you will run out of virtual address space if you go much further. On 64-bit systems you don’t have to worry about this problem.
 
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODA3MTY1MzQyLDE1MDQzNDg1MTddfQ==
+eyJoaXN0b3J5IjpbMTAwNjM2MTMxNCwxNTA0MzQ4NTE3XX0=
 -->
