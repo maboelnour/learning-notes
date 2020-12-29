@@ -44,7 +44,16 @@ The formulas in this section assume that your machine is dedicated to Passenger.
 
 ### Tuning the application process and thread count:
 
+##### Step 1: determining the application's memory usage:
+You should first figure out how much memory your application typically needs. Every application has different memory usage patterns, so the typical memory usage is best determined by observation.
+
+Run your app for a while, then run `passenger-status` at different points in time to examine memory usage. 
+
+
+
+
+
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQwMTE1MTQ4NCwxNTA0MzQ4NTE3XX0=
+eyJoaXN0b3J5IjpbLTE0MjMxMzQ4NDYsMTUwNDM0ODUxN119
 -->
