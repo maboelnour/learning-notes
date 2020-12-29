@@ -29,10 +29,10 @@ Creating a process like this is very fast, about 10 times faster than loading th
 
 ![enter image description here](https://www.phusionpassenger.com/library/indepth/spawn_methods/smart_spawning-45966b9d.png)
 ### Smart spawning caveats:
-Because application processes are created by forking from a preloader process, it will share all file descriptors that are opened by the preloader process. (This is part of the semantics of the Unix 'fork()' system call. You might want to Google it if you're not familiar with it.) A file descriptor is a handle which can be an opened file, an opened socket connection, a pipe, etc. If different application processes write to such a file descriptor at the same time, then their write calls will be interleaved, which may potentially cause problems.
+Because application processes are created by forking from a preloader process, it will share all file descriptors that are opened by the preloader process. If different application processes write to such a file descriptor at the same time, then their write calls will be interleaved, which may potentially cause problems.
 
-The problem commonly involves socket connections that are unintentionally being shared. You can fix it by closing and reestablishing the connection when Passenger is creating a new application process. Passenger provides the API call `PhusionPassenger.on_event(:starting_worker_process)` to do so (see also [Smart spawning hooks](https://www.phusionpassenger.com/library/indepth/ruby/spawn_methods/#smart-spawning-hooks)). So you could insert the following code in your `config.ru`:
+The problem commonly involves socket connections that are unintentionally being shared. You can fix it by closing and reestablishing the connection when Passenger is creating a new application process. So you could insert the following code in your `config.ru`:
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc2ODgxNTY4MCwxMzE1ODE3MzAxLC0xOD
-kyMjYyNDcsLTUxNjk3MTkxMl19
+eyJoaXN0b3J5IjpbNzAxODA2MTMsMTMxNTgxNzMwMSwtMTg5Mj
+I2MjQ3LC01MTY5NzE5MTJdfQ==
 -->
