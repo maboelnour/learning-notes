@@ -95,14 +95,25 @@ Armed with this knowledge, we derive the formulas for calculating how many proce
 
 -   If your application performs a lot of blocking I/O then you should give it as many processes and threads as possible:
 
-
+```
+# Use this formula for purely single-threaded multi-process scenarios.  
+desired_app_processes = max_app_processes
+# Use this formula for multithreaded 
+scenarios.desired_app_threads_per_process = max_app_threads_per_process
+```
     
 -   If your application doesn’t perform a lot of blocking I/O, then you should limit the number of processes or threads to a multiple of the number of CPUs to minimize context switching:
+```
+# Use this formula for purely single-threaded multi-process 
+scenarios.desired_app_processes = min(max_app_processes, NUMBER_OF_CPUS)
+# Use this formula for multithreaded 
+scenarios.desired_app_threads_per_process = min(max_app_threads_per_process, 2 * NUMBER_OF_CPUS)
+```
     
 
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM1NzEwNTM4MCwxMDA2MzYxMzE0LDE1MD
-QzNDg1MTddfQ==
+eyJoaXN0b3J5IjpbMTUxNTAzMDMxNiwxMzU3MTA1MzgwLDEwMD
+YzNjEzMTQsMTUwNDM0ODUxN119
 -->
