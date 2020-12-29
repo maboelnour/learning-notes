@@ -22,11 +22,11 @@ Run `passenger start` with `--max-pool-size=N --min-instances=N`, where `N` is t
 
 ### Maximizing throughput
 
-The amount of throughput that Passenger handles is proportional to the number of processes or threads that you've configured. More processes/threads generally means more throughput, but there is an upper limit. Past a certain value, further increasing the number of processes/threads won't help. If you increase the number of processes/threads even further, then performance may even go down.
+The amount of throughput that Passenger handles is proportional to the number of processes or threads that you've configured. More processes/threads generally means more throughput, but there is an upper limit. If you increase the number of processes/threads even further, then performance may even go down.
 
 The optimal value depends on the hardware and the environment. This section will provide you with formulas to calculate that optimal value. The following factors are involved in calculation:
 
--   **Memory**. More processes implies a higher memory usage. If too much memory is used then the machine will hit swap, which slows everything down. You should only have as many processes as memory limits comfortably allow. Threads use less memory, so prefer threads when possible. You can create tens of threads in place of one process.
+-   **Memory**. More processes implies a higher memory usage. If too much memory is used then the machine will hit swap, which slows everything down. Threads use less memory, so prefer threads when possible. You can create tens of threads in place of one process.
 -   **Number of CPUs**. True (hardware) concurrency cannot be higher than the number of CPUs. In theory, if all processes/threads on your system use the CPUs constantly, then:
     
     -   You can increase throughput up to `NUMBER_OF_CPUS` processes/threads.
@@ -34,7 +34,7 @@ The optimal value depends on the hardware and the environment. This section will
     
     Having more processes than CPUs may decrease total throughput a little thanks to context switching overhead, but the difference is not big because OSes are good at context switching these days.
     
-    On the other hand, if your CPUs are not used constantly, e.g. because they’re often blocked on I/O, then the above does not apply and increasing the number of processes/threads does increase concurrency and throughput, at least until the CPUs are saturated.
+    On the other hand, if your CPUs are not used constantly, e.g. because they’re often blocked on I/O, *then the above does not apply and increasing the number of processes/threads does increase concurrency and throughput, at least until the CPUs are saturated*.
     
 -   **Blocking I/O**. This covers all blocking I/O, including hard disk access latencies, database call latencies, web API calls, etc. Handling input from the client and output to the client does not count as blocking I/O, because Passenger has buffering layers that relief the application from worrying about this.
     
@@ -43,5 +43,5 @@ The optimal value depends on the hardware and the environment. This section will
 
 The formulas in this section assume that your machine is dedicated to Passenger. If your machine also hosts other software (e.g. a database) then you'll need to tweak the formulas a little bit.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTU4NTczOTQ3LDE1MDQzNDg1MTddfQ==
+eyJoaXN0b3J5IjpbLTcwODg4NzQ3OCwxNTA0MzQ4NTE3XX0=
 -->
