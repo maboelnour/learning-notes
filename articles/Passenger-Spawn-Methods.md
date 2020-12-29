@@ -25,10 +25,14 @@ When the `smart` spawn method is being used, Passenger will first create a so-ca
 
 Then, whenever Passenger needs a new application process, it will instruct the preloader to create one. The preloader then spawns a child process (with the `fork()` system call). The operating system guarantees that this child process is an exact virtual copy of itself. This child process therefore already has the application code and the web framework code in memory.
 
-Creating a process like this is very fast, about 10 times faster than loading the Ruby application + framework from scratch. On top of that, the OS also applies an optimization called "copy-on-write". This means that all memory that the child process hasn't modified, is shared with the parent process.
+Creating a process like this is very fast, about 10 times faster than loading the Ruby application + framework from scratch. On top of that, the OS also applies an optimization called `copy-on-write`. This means that all memory that the child process hasn't modified, is shared with the parent process.
 
 ![enter image description here](https://www.phusionpassenger.com/library/indepth/spawn_methods/smart_spawning-45966b9d.png)
+### Smart spawning caveats:
+Because application processes are created by forking from a preloader process, it will share all file descriptors that are opened by the preloader process. (This is part of the semantics of the Unix 'fork()' system call. You might want to Google it if you're not familiar with it.) A file descriptor is a handle which can be an opened file, an opened socket connection, a pipe, etc. If different application processes write to such a file descriptor at the same time, then their write calls will be interleaved, which may potentially cause problems.
+
+The problem commonly involves socket connections that are unintentionally being shared. You can fix it by closing and reestablishing the connection when Passenger is creating a new application process. Passenger provides the API call `PhusionPassenger.on_event(:starting_worker_process)` to do so (see also [Smart spawning hooks](https://www.phusionpassenger.com/library/indepth/ruby/spawn_methods/#smart-spawning-hooks)). So you could insert the following code in your `config.ru`:
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzMDE4MTMxNDYsMTMxNTgxNzMwMSwtMT
-g5MjI2MjQ3LC01MTY5NzE5MTJdfQ==
+eyJoaXN0b3J5IjpbLTc2ODgxNTY4MCwxMzE1ODE3MzAxLC0xOD
+kyMjYyNDcsLTUxNjk3MTkxMl19
 -->
