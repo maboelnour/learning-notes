@@ -49,11 +49,27 @@ You should first figure out how much memory your application typically needs. Ev
 
 Run your app for a while, then run `passenger-status` at different points in time to examine memory usage. 
 
+##### Step 2: determine the system's limits:
+First, let's define the maximum number of (single-threaded) processes, or the total number of threads, that you can comfortably have given the amount of RAM you have. This is a reasonable upper limit that you can reach without degrading system performance. This number is not the final optimal number, but is merely used for further caculations in later steps.
 
+There are two formulas that we can use, depending on what kind of concurrency model your application is using in production.
+
+*Purely single-threaded multi-process formula*
+
+If you didn't explicitly configure multithreading, then you are using using this concurrency model.
+The formula is then as follows:
+```
+max_app_processes = (TOTAL_RAM * 0.75) / RAM_PER_PROCESS
+```
+
+It is derived as follows:
+
+-   `(TOTAL_RAM * 0.75)`: We can assume that there must be at least 25% of free RAM that the operating system can use for other things. The result of this calculation is the RAM that is freely available for applications. If your system runs a lot of services and thus has less memory available for Passenger and its apps, then you should lower `0.75` to some constant that you think is appropriate.
+-   `/ RAM_PER_PROCESS`: Each process consumes a roughly constant amount of RAM, so the maximum number of processes is a single devision between the aforementioned calculation and this constant.
 
 
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0MjMxMzQ4NDYsMTUwNDM0ODUxN119
+eyJoaXN0b3J5IjpbODA3MTY1MzQyLDE1MDQzNDg1MTddfQ==
 -->
