@@ -1,6 +1,6 @@
 # PostgreSQL Indexes
 
-This notes are to summarize [Chapter 11: Indexes](https://www.postgresql.org/docs/12/indexes.html) from PostgresSQL Docs. 
+This notes summarize [Chapter 11: Indexes](https://www.postgresql.org/docs/12/indexes.html) from PostgresSQL Docs. 
 
 ## Introduction:
 
@@ -127,7 +127,7 @@ even though they had no intention of ever using `y` as part of a `WHERE` clause.
     
     If you do not succeed in adjusting the costs to be more appropriate, then you might have to resort to forcing index usage explicitly.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwOTAxNjMxMDcsLTM2MjYwNDYzOCwxNj
-Y3MzAxOTQ1LC0xOTYwMDQ1NTI2LDIwNzI0NjM4MTUsMTA4NDM0
-OTY5Nl19
+eyJoaXN0b3J5IjpbLTEwNzQxMDI4ODYsLTIwOTAxNjMxMDcsLT
+M2MjYwNDYzOCwxNjY3MzAxOTQ1LC0xOTYwMDQ1NTI2LDIwNzI0
+NjM4MTUsMTA4NDM0OTY5Nl19
 -->
