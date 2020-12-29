@@ -87,10 +87,38 @@ The formula is derived as follows:
 -   `(CHOSEN_NUMBER_OF_PROCESSES * RAM_PER_PROCESS * 0.9)`: This calculates the amount of memory that all the processes together would consume, assuming they're not running any threads. When this is deducted from `TOTAL_RAM * 0.75`, we end up with the amount of RAM available to application threads.
 -   `/ (RAM_PER_PROCESS / 10)`: We estimate that a thread consumes ~10% of the amount of memory a process would, so we divide the amount of RAM available to threads with this number. What we get is the number of threads that the system can handle.
 
-On 32-bit systems, `max_app_threads_per_process` should not be higher than about 200. Assuming an 8 MB stack size per thread, you will run out of virtual address space if you go much further. On 64-bit systems you don’t have to worry about this problem.
+##### Step 3: derive the applications' needs
+
+The earlier two formulas were not for calculating the number of processes or threads that application needs, but for calculating how much the system can handle without getting into trouble. Your application may not actually need that many processes or threads! If your application is CPU-bound, then you only need a small multiple of the number of CPUs you have. Only if your application performs a lot of blocking I/O (e.g. database calls that take tens of milliseconds to complete, or you call to Twitter) do you need a large number of processes or threads.
+
+Armed with this knowledge, we derive the formulas for calculating how many processes or threads we actually need.
+
+-   If your application performs a lot of blocking I/O then you should give it as many processes and threads as possible:
+    
+
+-   ```
+    # Use this formula for purely single-threaded multi-process scenarios.
+    desired_app_processes = max_app_processes
+    
+    # Use this formula for multithreaded scenarios.
+    desired_app_threads_per_process = max_app_threads_per_process
+    
+    ```
+    
+-   If your application doesn’t perform a lot of blocking I/O, then you should limit the number of processes or threads to a multiple of the number of CPUs to minimize context switching:
+    
+
+```
+# Use this formula for purely single-threaded multi-process scenarios.
+desired_app_processes = min(max_app_processes, NUMBER_OF_CPUS)
+
+# Use this formula for multithreaded scenarios.
+desired_app_threads_per_process = min(max_app_threads_per_process, 2 * NUMBER_OF_CPUS)
+```
 
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTAwNjM2MTMxNCwxNTA0MzQ4NTE3XX0=
+eyJoaXN0b3J5IjpbMTM4Nzc2Mjk4MywxMDA2MzYxMzE0LDE1MD
+QzNDg1MTddfQ==
 -->
